@@ -32,14 +32,27 @@ class MenuGroupSeeder extends Seeder
                     'name' => 'Role Management',
                     'icon' => 'fas fa-user-tag',
                     'permisison_name' => 'role.permission.management',
-                ],
-               
+                ], 
                 [
                     'name' => 'Menu Management',
                     'icon' => 'fas fa-bars',
                     'permisison_name' => 'menu.management',
                 ],
-              
+                [
+                    'name' => 'Table Management',
+                    'icon' => 'fas fa-bars',
+                    'permisison_name' => 'table.index',
+                ],  
+                [
+                    'name' => 'Payment Management',
+                    'icon' => 'fas fa-bars',
+                    'permisison_name' => 'payment.index',
+                ],
+                [
+                    'name' => 'Transaction Management',
+                    'icon' => 'fas fa-bars',
+                    'permisison_name' => 'transaction.index',
+                ],
             ]
         );
     }

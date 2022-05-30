@@ -42,6 +42,30 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'role.import']);
         Permission::create(['name' => 'role.export']);
 
+        //table
+        Permission::create(['name' => 'table.index']);
+        Permission::create(['name' => 'table.create']);
+        Permission::create(['name' => 'table.edit']);
+        Permission::create(['name' => 'table.destroy']); 
+
+        //menu
+        Permission::create(['name' => 'menu.index']);
+        Permission::create(['name' => 'menu.create']);
+        Permission::create(['name' => 'menu.edit']);
+        Permission::create(['name' => 'menu.destroy']); 
+
+        //payment
+        Permission::create(['name' => 'payment.index']);
+        Permission::create(['name' => 'payment.create']);
+        Permission::create(['name' => 'payment.edit']);
+        Permission::create(['name' => 'payment.destroy']); 
+        
+        //transaction
+        Permission::create(['name' => 'transaction.index']);
+        Permission::create(['name' => 'transaction.create']);
+        Permission::create(['name' => 'transaction.edit']);
+        Permission::create(['name' => 'transaction.destroy']); 
+        
         //permission
         Permission::create(['name' => 'permission.index']);
         Permission::create(['name' => 'permission.create']);
