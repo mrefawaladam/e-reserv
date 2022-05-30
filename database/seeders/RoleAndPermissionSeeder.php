@@ -25,6 +25,7 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'user.management']);
         Permission::create(['name' => 'role.permission.management']);
         Permission::create(['name' => 'menu.management']);
+
         //user
         Permission::create(['name' => 'user.index']);
         Permission::create(['name' => 'user.create']);
@@ -32,7 +33,7 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'user.destroy']);
         Permission::create(['name' => 'user.import']);
         Permission::create(['name' => 'user.export']);
-
+ 
         //role
         Permission::create(['name' => 'role.index']);
         Permission::create(['name' => 'role.create']);
@@ -59,12 +60,7 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'assign.user.index']);
         Permission::create(['name' => 'assign.user.create']);
         Permission::create(['name' => 'assign.user.edit']);
-
-        //major
-        Permission::create(['name' => 'major.index']);
-        Permission::create(['name' => 'major.create']);
-        Permission::create(['name' => 'major.edit']);
-        Permission::create(['name' => 'major.destroy']);
+ 
 
         // create roles 
         $roleUser = Role::create(['name' => 'user']);
@@ -73,6 +69,15 @@ class RoleAndPermissionSeeder extends Seeder
             'user.management',
             'user.index',
         ]);
+
+        // create roles 
+        $roleUser = Role::create(['name' => 'staf']);
+        $roleUser->givePermissionTo([
+            'dashboard',
+            'user.management',
+            'user.index',
+        ]);
+
 
         // create Super Admin
         $role = Role::create(['name' => 'super-admin']);
@@ -83,5 +88,7 @@ class RoleAndPermissionSeeder extends Seeder
         $user->assignRole('super-admin');
         $user = User::find(2);
         $user->assignRole('user');
+        $user = User::find(3);
+        $user->assignRole('staf');
     }
 }

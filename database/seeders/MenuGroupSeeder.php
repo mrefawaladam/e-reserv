@@ -39,11 +39,7 @@ class MenuGroupSeeder extends Seeder
                     'icon' => 'fas fa-bars',
                     'permisison_name' => 'menu.management',
                 ],
-                [
-                    'name' => 'Major Management',
-                    'icon' => 'fas fa-major-management',
-                    'permisison_name' => 'role.permission.major',
-                ]
+              
             ]
         );
     }
