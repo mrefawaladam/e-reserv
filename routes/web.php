@@ -3,7 +3,7 @@
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
-use App\Http\Controllers\Menu\ClassRoomController;
+use App\Http\Controllers\Menu\TableController;
 use App\Http\Controllers\Menu\MajorController;
 
 
@@ -51,11 +51,9 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::resource('menu-item', MenuItemController::class);
     });
 
-    // class list
-    Route::resource('class-room', ClassRoomController::class);
-    // major list
-    Route::resource('major', MajorController::class);
-
+    // table list
+    Route::resource('table', TableController::class);
+    
 
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role

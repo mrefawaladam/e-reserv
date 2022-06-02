@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
-class TabaleController extends Controller
+class TableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TabaleController extends Controller
      */
     public function index()
     {
-        //
+         return view('pages.table.index');
     }
 
     /**
@@ -25,7 +25,8 @@ class TabaleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.table.create');
+
     }
 
     /**
