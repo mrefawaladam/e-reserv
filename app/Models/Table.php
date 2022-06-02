@@ -15,12 +15,13 @@ class Table extends Model
         'barcode',
     ];
 
-    public static function getNumberRandom($kolom){
+    // random number functions
+    public static function getNumberRandom($column){
         $min = 1000000000;$max = 9999999999;
         $rand = 'QR'.mt_rand($min, $max);
-        $getnumber = Table::where($kolom ,'=', $rand)->get();
+        $getnumber = Table::where($column ,'=', $rand)->get();
         if(count($getnumber) > 0){ 
-            return getNumberRandom($kolom);
+            return getNumberRandom($column);
         }
         else{
             return $rand;
