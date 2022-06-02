@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+// menu
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\Menu\TableController;
 use App\Http\Controllers\Menu\MajorController;
-
-
+// Role Permissions
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
@@ -15,6 +15,9 @@ use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
 use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
+// Main
+use App\Http\Controllers\Main\PagesController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
@@ -30,8 +33,11 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('layouts.main');
 });
+
+Route::get('/scan-qrcode',  [PagesController::class,'scan']);
+
 
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/dashboard', function () {
