@@ -13,7 +13,7 @@ class TransactionDetail extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_detail', function (Blueprint $table) {
+        Schema::create('transaction_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('menu_id');

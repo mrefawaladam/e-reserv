@@ -13,13 +13,13 @@ class Transaction extends Migration
      */
     public function up()
     {
-        Schema::create('transaction', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->foreignId('user_id');
-            $table->foreignId('payment_id');
-            $table->foreignId('staff_id');
+            $table->foreignId('user_id')->nullable(); ;
+            $table->foreignId('payment_id'); 
+            $table->foreignId('table_id'); 
             $table->string('status');
+            $table->timestamps();
         });
     }
 
