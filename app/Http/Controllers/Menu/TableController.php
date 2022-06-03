@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Menu;
 
-use App\Http\Controllers\Controller;
 use App\Models\Table;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTableRequest;
+use App\Http\Requests\UpdateTableRequest;
 
-class TabaleController extends Controller
+class TableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,8 @@ class TabaleController extends Controller
      */
     public function index()
     {
-        //
+         $tables = Table::all();
+         return view('pages.table.index',compact('tables'));
     }
 
     /**
@@ -25,7 +28,8 @@ class TabaleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.table.create');
+
     }
 
     /**
@@ -34,9 +38,16 @@ class TabaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTableRequest $request)
     {
-        //
+        $request->validated();
+        
+        Table::create([
+            'name'   => $request->name,
+            'barcode' => Table::getNumberRandom('barcode')
+        ]);
+
+        return redirect()->route('table.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -58,7 +69,7 @@ class TabaleController extends Controller
      */
     public function edit(Table $table)
     {
-        //
+        return view('pages.table.edit',compact('table'));
     }
 
     /**
@@ -68,9 +79,10 @@ class TabaleController extends Controller
      * @param  \App\Models\Table  $table
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Table $table)
+    public function update(UpdateTableRequest $request, Table $table)
     {
-        //
+        $table->update($request->validated()); 
+        return redirect()->route('table.index')->with('success', 'Data berhasil di ubah');
     }
 
     /**
@@ -81,6 +93,8 @@ class TabaleController extends Controller
      */
     public function destroy(Table $table)
     {
-        //
+       $table->delete();
+       return redirect()->route('table.index')->with('success', 'Data berhasil di hapus');
+
     }
 }

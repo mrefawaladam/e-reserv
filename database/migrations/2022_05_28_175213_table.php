@@ -13,12 +13,12 @@ class Table extends Migration
      */
     public function up()
     {
-        Schema::create('table', function (Blueprint $table) {
+        Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
-            $table->string('status');
+            $table->enum('status', ['empty', 'occupied']); 
             $table->string('barcode');
+            $table->timestamps();
         });
     }
 

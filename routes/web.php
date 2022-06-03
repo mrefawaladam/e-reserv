@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
+<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Menu\MenuController;
 
@@ -15,10 +16,30 @@ use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\RoleAndPermission\ExportRoleController;
 use App\Http\Controllers\RoleAndPermission\ImportRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
+=======
+// menu
+use App\Http\Controllers\Menu\MenuGroupController;
+use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\Menu\TableController;
+use App\Http\Controllers\Menu\MajorController;
+// Role Permissions
+>>>>>>> e4135c4068b93a8d185bc097d2020c55f98c9bab
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
 use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\RoleAndPermission\ImportRoleController;
+use App\Http\Controllers\RoleAndPermission\PermissionController;
+use App\Http\Controllers\RoleAndPermission\RoleController;
+// Main
+use App\Http\Controllers\Main\PagesController;
+
+use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Http\Controllers\UserController;
+>>>>>>> e4135c4068b93a8d185bc097d2020c55f98c9bab
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +52,11 @@ use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('layouts.main');
 });
+
+Route::get('/scan-qrcode',  [PagesController::class,'scan']);
+
 
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/dashboard', function () {
@@ -52,8 +76,14 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::resource('menu-item', MenuItemController::class);
     });
 
+<<<<<<< HEAD
     // menu list
     Route::resource('menu', MenuController::class);;
+=======
+    // table list
+    Route::resource('table', TableController::class);
+    
+>>>>>>> e4135c4068b93a8d185bc097d2020c55f98c9bab
 
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role

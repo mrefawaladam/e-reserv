@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
-
-use App\Models\ClassRoom;
-use App\Models\MlassRoom;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
-class ClassRoomController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +15,9 @@ class ClassRoomController extends Controller
      */
     public function index()
     {
-        $classRooms = ClassRoom::paginate(10);
-        return view('pages.class-room.index',compact('classRooms'));
-
+        //
     }
- 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,9 +25,7 @@ class ClassRoomController extends Controller
      */
     public function create()
     {
-        $major = Major::all();
-        return view('pages.class-room.create',compact('major'));
-
+        //
     }
 
     /**
@@ -48,10 +42,10 @@ class ClassRoomController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ClassRoom  $classRoom
+     * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(ClassRoom $classRoom)
+    public function show(Transaction $transaction)
     {
         //
     }
@@ -59,10 +53,10 @@ class ClassRoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ClassRoom  $classRoom
+     * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(ClassRoom $classRoom)
+    public function edit(Transaction $transaction)
     {
         //
     }
@@ -71,10 +65,10 @@ class ClassRoomController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ClassRoom  $classRoom
+     * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClassRoom $classRoom)
+    public function update(Request $request, Transaction $transaction)
     {
         //
     }
@@ -82,10 +76,10 @@ class ClassRoomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ClassRoom  $classRoom
+     * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClassRoom $classRoom)
+    public function destroy(Transaction $transaction)
     {
         //
     }

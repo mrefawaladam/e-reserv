@@ -70,7 +70,7 @@ class MenuItemSeeder extends Seeder
                     'name' => 'Table List',
                     'route' => 'table',
                     'permission_name' => 'table.index',
-                    'menu_group_id' => 4,
+                    'menu_group_id' => 5,
                 ],
                
             ]
