@@ -19,7 +19,6 @@ class Menu extends Migration
             $table->string('name');
             $table->string('status');
             $table->string('barcode');
-            $table->foreignId('user_id');
             $table->integer('qty');
         });
     }

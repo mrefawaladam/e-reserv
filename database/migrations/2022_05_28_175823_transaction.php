@@ -18,7 +18,7 @@ class Transaction extends Migration
             $table->timestamps();
             $table->foreignId('user_id');
             $table->foreignId('payment_id');
-            $table->foreignId('staff_id');
+            $table->foreignId('table_id');
             $table->string('status');
         });
     }
