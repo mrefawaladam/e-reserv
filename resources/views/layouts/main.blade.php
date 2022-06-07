@@ -9,14 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @stack('customStyle')
 
-    <title>E-Reserf</title>
+    <title>E-Reserv</title>
   </head>
   <body>
-    
-    <!-- Header --> 
+
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <div class="container-fluid">
-            <a class="navbar-brand" href="#">E-Reserf</a>
+            <a class="navbar-brand" href="#">E-Reserv</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,10 +29,10 @@
                      <a class="nav-link" href="#">Menu</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Login</a>
+                     <a class="nav-link" href="login">Login</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Register</a>
+                     <a class="nav-link" href="register">Register</a>
                   </li>
                </ul>
             </div>
