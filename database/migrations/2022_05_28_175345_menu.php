@@ -13,13 +13,12 @@ class Menu extends Migration
      */
     public function up()
     {
-        Schema::create('menu', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
             $table->string('status');
-            $table->string('barcode');
             $table->integer('qty');
+            $table->timestamps();
         });
     }
 

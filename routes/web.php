@@ -1,21 +1,26 @@
 <?php
 
-use App\Models\User;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\Menu\MenuController;
-use App\Http\Controllers\Main\PagesController;
-use App\Http\Controllers\Menu\MenuItemController;
+// menu
 use App\Http\Controllers\Menu\MenuGroupController;
-use App\Http\Controllers\RoleAndPermission\RoleController;
-use App\Http\Controllers\RoleAndPermission\ExportRoleController;
-use App\Http\Controllers\RoleAndPermission\ImportRoleController;
-use App\Http\Controllers\RoleAndPermission\PermissionController;
+use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\Menu\TableController;
+use App\Http\Controllers\Menu\MajorController;
+// Role Permissions
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
+use App\Http\Controllers\RoleAndPermission\ExportRoleController;
 use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
+use App\Http\Controllers\RoleAndPermission\ImportRoleController;
+use App\Http\Controllers\RoleAndPermission\PermissionController;
+use App\Http\Controllers\RoleAndPermission\RoleController;
+// Main
+use App\Http\Controllers\Main\PagesController;
+use App\Http\Controllers\Menu\MenuController;
+use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,8 +57,10 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::resource('menu-item', MenuItemController::class);
     });
 
-    // menu list
-    Route::resource('menu', MenuController::class);;
+    Route::resource('menu',MenuController::class);
+    // table list
+    Route::resource('table', TableController::class);
+
 
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role
@@ -79,7 +86,5 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::post('assign-user', [AssignUserToRoleController::class, 'store'])->name('assign.user.store');
         Route::get('assing-user/{user}/edit', [AssignUserToRoleController::class, 'edit'])->name('assign.user.edit');
         Route::put('assign-user/{user}', [AssignUserToRoleController::class, 'update'])->name('assign.user.update');
-
-
     });
 });

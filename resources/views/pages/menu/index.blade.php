@@ -4,7 +4,7 @@
      <!-- Main Content -->
      <section class="section">
         <div class="section-header">
-            <h1>Menu Group and Menu Item</h1>
+            <h1>Menu List</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -12,7 +12,6 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Menu Item Management</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -52,30 +51,30 @@
                                 <table class="table table-bordered table-md" id="tableData">
                                     <thead>
                                     <tr class="text-center">
-                                        <th>#</th>
+                                        <th>No</th>
                                         <th>Name</th>
                                         <th>Status</th>
-                                        <th>Qrcode</th>
+                                        <th>Quantity</th>
                                         <th class="text-right">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($tables as $key => $table)
+                                        @foreach ($menus as $key => $menu)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $table->name }}</td>
-                                                <td>{{ $table->status }}</td>
-                                                <td> {{QrCode::generate(url('findtable'.$table->barcode)) }}</td>
+                                                <td>{{ $menu->name }}</td>
+                                                <td>{{ $menu->status }}</td>
+                                                <td>{{ $menu->qty}}</td>
 
 
 
                                                 <td class="text-right">
                                                     <div class="d-flex justify-content-end">
-                                                        <a href="{{ route('table.edit', $table->id) }}"
+                                                        <a href="{{ route('menu.edit', $menu->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
                                                             Edit</a>
-                                                        <form action="{{ route('table.destroy', $table->id) }}"
+                                                        <form action="{{ route('menu.destroy', $menu->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <input type="hidden" name="_token"

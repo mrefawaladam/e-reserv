@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Menu;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -16,8 +15,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        // $menu = DB::table('menu');
-        return view('pages.menu.create');
+        $menus = Menu::all();
+        return view('pages.menu.index',compact('menus'));
     }
 
     /**
@@ -27,7 +26,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.menu.create');
     }
 
     /**
