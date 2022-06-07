@@ -20,6 +20,7 @@ class MenuSeeder extends Seeder
                     'name' => 'Batagor',
                     'user_id' => '1',
                     'status' => 'available',
+                    'description' => 'available',
                     'qty' => '5',
 
                 ],
@@ -27,6 +28,7 @@ class MenuSeeder extends Seeder
                     'name' => 'Expresso',
                     'user_id' => '1',
                     'status' => 'available',
+                    'description' => 'available',
                     'qty' => '5',
 
                 ],
@@ -35,6 +37,7 @@ class MenuSeeder extends Seeder
                     'user_id' => '1',
                     'status' => 'available',
                     'qty' => '5',
+                    'description' => 'available',
 
                 ],
                 [
@@ -42,6 +45,8 @@ class MenuSeeder extends Seeder
                     'user_id' => '1',
                     'status' => 'available',
                     'qty' => '5',
+                    'description' => 'available',
+
 
                 ],
                 

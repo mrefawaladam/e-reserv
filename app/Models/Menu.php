@@ -11,6 +11,11 @@ class Menu extends Model
 
     public function photo()
     {
-        return $this->hasMany(Photo::class);
+        return $this->hasMany(Photo::class );
+    }
+
+    public function main_photo()
+    {
+        return $this->hasOne(Photo::class );
     }
 }

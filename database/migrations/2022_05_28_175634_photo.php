@@ -17,7 +17,6 @@ class Photo extends Migration
             $table->id();
             $table->foreignId('menu_id');
             $table->string('file_path');
-            $table->string('method');
             $table->timestamps();
         });
     }

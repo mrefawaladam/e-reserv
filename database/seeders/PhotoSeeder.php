@@ -14,7 +14,7 @@ class PhotoSeeder extends Seeder
      */
     public function run()
     { 
-        Menu::insert(
+        Photo::insert(
         [
             [
                 'file_path' => 'img1.jpg',

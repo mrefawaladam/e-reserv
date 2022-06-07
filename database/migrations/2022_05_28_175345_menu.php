@@ -19,6 +19,7 @@ class Menu extends Migration
             $table->string('status'); 
             $table->integer('qty');
             $table->integer('user_id');
+            $table->text('description');
             $table->timestamps();
         });
     }
