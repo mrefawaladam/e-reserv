@@ -15,7 +15,7 @@ class Transaction extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('user_id')->nullable(); ;
             $table->foreignId('payment_id');
             $table->foreignId('table_id');
             $table->string('status');

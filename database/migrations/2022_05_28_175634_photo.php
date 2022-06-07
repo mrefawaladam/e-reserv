@@ -13,12 +13,11 @@ class Photo extends Migration
      */
     public function up()
     {
-        Schema::create('photo', function (Blueprint $table) {
+        Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('menu_id');
             $table->string('file_path');
-            $table->string('method');
+            $table->timestamps();
         });
     }
 
