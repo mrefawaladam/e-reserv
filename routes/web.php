@@ -21,6 +21,7 @@ use App\Http\Controllers\Menu\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +65,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     // table list
     Route::resource('table', TableController::class);
 
+    Route::resource('payment', PaymentController::class);
 
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role
