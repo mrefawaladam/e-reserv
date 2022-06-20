@@ -36,10 +36,9 @@ Route::get('/', function () {
     return view('layouts.main');
 });
 
-Route::get('/scan-qrcode',  [PagesController::class,'scan']);
-Route::get('/search-menu/{$table}',  [PagesController::class,'table']);
+Route::get('/scan-qrcode',  [PagesController::class,'scan']); 
 Route::get('/menu-all',  [PagesController::class,'menu']);
-
+Route::get('/table-menu/{$table}', [PagesController::class,'table']);   
 
 
 Route::group(['middleware' => ['auth','verified']], function () {
