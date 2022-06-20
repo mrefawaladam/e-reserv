@@ -20,14 +20,13 @@ class Table extends Model
         $min = 1000000000;$max = 9999999999;
         $rand = 'QR'.mt_rand($min, $max);
         $getnumber = Table::where($column ,'=', $rand)->get();
-        if(count($getnumber) > 0){ 
+        if(count($getnumber) > 0){
             return getNumberRandom($column);
         }
         else{
             return $rand;
         }
-        
-    } 
+
+    }
 
 }
- 

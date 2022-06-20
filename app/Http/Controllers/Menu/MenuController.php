@@ -37,7 +37,15 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validated();
+
+        Menu::create([
+            'name'   => $request->name,
+            'qty' => $request->qty,
+            'photo' => $request->photo,
+        ]);
+
+        return redirect()->route('table.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -59,7 +67,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('pages.menu.edit',compact('menu'));
     }
 
     /**
@@ -71,7 +79,8 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $menu->update($request->validated());
+        return redirect()->route('menu.index')->with('success', 'Data berhasil di ubah');
     }
 
     /**
@@ -82,6 +91,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->route('menu.index')->with('success', 'Data berhasil di hapus');
     }
 }

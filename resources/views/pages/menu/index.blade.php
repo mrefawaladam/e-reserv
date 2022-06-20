@@ -25,7 +25,7 @@
                             <h4>Menu Item List</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary"
-                                    href="{{ route('menu-item.create') }}">Create New
+                                    href="{{ route('menu.create') }}">Create New
                                     Menu Item</a>
 
                             </div>
@@ -33,7 +33,7 @@
                         <div class="card-body">
 
                             <div class="show-search mb-3" style="display: none">
-                                <form id="search" method="GET" action="{{ route('menu-item.index') }}">
+                                <form id="search" method="GET" action="{{ route('menu.index') }}">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="role">Menu Item</label>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="text-right">
                                         <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a class="btn btn-secondary" href="{{ route('menu-item.index') }}">Reset</a>
+                                        <a class="btn btn-secondary" href="{{ route('menu.index') }}">Reset</a>
                                     </div>
                                 </form>
                             </div>
