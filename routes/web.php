@@ -6,6 +6,7 @@ use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\Menu\TableController;
 use App\Http\Controllers\Menu\MajorController;
+use App\Http\Controllers\Menu\PaymentController;
 // Role Permissions
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
@@ -63,6 +64,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     // table list
     Route::resource('table', TableController::class);
 
+    Route::resource('payment', PaymentController::class);
 
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role

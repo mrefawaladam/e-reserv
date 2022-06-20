@@ -1,6 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/dropzone.js') }}"></script>
+<style>
+    .dropzoneDragArea {
+        background-color: #fbfdff;
+        border: 1px dashed #c0ccda;
+        border-radius: 6px;
+        padding: 60px;
+        text-align: center;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+    .dropzone{
+        box-shadow: 0px 2px 20px 0px #f2f2f2;
+        border-radius: 10px;
+    }
+</style>
+
 
     <section class="section">
         <div class="section-header">
@@ -19,8 +38,9 @@
                     <h4>Validation</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('menu.store') }}" method="post">
+                    <form action="{{ route('menu.store') }}" method="post" name="CreateForm" id="CreateForm">
                         @csrf
+                        <input type="hidden" class="userid" name="userid" id="userid" value="">
                         <div class="form-group">
                             <label for="name">Menu Name</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
@@ -44,14 +64,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Photo</label>
-                            <input type="file" name="my_file[]" multiple>
-                            @php
-                                if(isset($FILES['my_file'])){
-                                    $myFile = $_FILES['my_file'];
-                                    $fileCount = count($myFile['name']);
-                                }
-                            @endphp
+                            <label for="name">Photos</label>
+                            <div id="dropzoneDragArea" class="dz-default dz-message dropzoneDragArea">
+                                <span>Upload file</span>
+                            </div>
+                            <div class="dropzone-previews"></div>
                         </div>
 
                 </div>

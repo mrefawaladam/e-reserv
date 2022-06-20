@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Menu;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route;
+use App\Http\Requests\StoreTableRequest;
+use App\Http\Requests\UpdateTableRequest;
 
 class PaymentController extends Controller
 {
@@ -18,17 +18,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        $menuItems = DB::table('payment')
-            ->select('payment.*', 'menu_groups.name as menu_group_name')
-            ->join('menu_groups', 'menu_items.menu_group_id', '=', 'menu_groups.id')
-            ->when($request->input('name'), function ($query, $name) {
-                return $query->where('menu_items.name', 'like', '%' . $name . '%');
-            })
-            ->when($request->input('url'), function ($query, $url) {
-                return $query->where('url', 'like', '%' . $url . '%');
-            })
-            ->paginate(10);
-        return view('menu.menu-item.index', compact('menuItems'));
+        $payment = Payment::all();
+        return view('pages.payment.index',compact('payment'));
     }
 
     /**
