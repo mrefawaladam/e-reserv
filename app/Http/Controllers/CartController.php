@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -10,7 +11,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('cart', compact('cartItems'));
+        return view('pages.main.menu', compact('cartItems'));
     }
 
 
@@ -20,14 +21,14 @@ class CartController extends Controller
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->price,
-            'qty' => $request->qty,
+            'quantity' => $request->quantity,
             'attributes' => array(
                 'image' => $request->image,
             )
         ]);
         session()->flash('success', 'Product is Added to Cart Successfully !');
 
-        return redirect()->route('cart.list');
+        return redirect()->back();
     }
 
     public function updateCart(Request $request)
@@ -37,7 +38,7 @@ class CartController extends Controller
             [
                 'quantity' => [
                     'relative' => false,
-                    'value' => $request->qty
+                    'value' => $request->quantity
                 ],
             ]
         );
