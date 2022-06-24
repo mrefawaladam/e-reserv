@@ -19,14 +19,16 @@ class MenuSeeder extends Seeder
                 [
                     'name' => 'Batagor',
                     'user_id' => '1',
+                    'price' => '30000',
                     'status' => 'available',
                     'description' => 'available',
                     'qty' => '5',
 
                 ],
                 [
-                    'name' => 'Expresso',
+                    'name' => 'Espresso',
                     'user_id' => '1',
+                    'price' => '20000',
                     'status' => 'available',
                     'description' => 'available',
                     'qty' => '5',
@@ -35,6 +37,7 @@ class MenuSeeder extends Seeder
                 [
                     'name' => 'Latte',
                     'user_id' => '1',
+                    'price' => '15000',
                     'status' => 'available',
                     'qty' => '5',
                     'description' => 'available',
@@ -43,13 +46,14 @@ class MenuSeeder extends Seeder
                 [
                     'name' => 'Capucino',
                     'user_id' => '1',
+                    'price' => '25000',
                     'status' => 'available',
                     'qty' => '5',
                     'description' => 'available',
 
 
                 ],
-                
+
             ]
         );
     }

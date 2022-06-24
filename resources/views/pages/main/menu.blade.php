@@ -15,8 +15,18 @@
             <img width="200" height="350" src="{{ asset('assets/img/path/'.$menu->main_photo->file_path)}}" class="card-img-top" alt="{{ asset('assets/img/path/'.$menu->main_photo->file_path)}}">
             <div class="card-body">
                 <h5 class="card-title">{{ $menu->name }}</h5>
-                <p class="card-text">S{{ $menu->description }}</p>
-                <a href="#" class="btn btn-primary">Pilih</a>
+                <span class="card-text">Rp{{ $menu->price }}</span>
+                <p class="card-text">{{ $menu->description }}</p>
+                {{-- <a href="#" class="btn btn-primary">Pilih</a> --}}
+                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" value="{{ $menu->id }}" name="id">
+                    <input type="hidden" value="{{ $menu->name }}" name="name">
+                    <input type="hidden" value="{{ $menu->price }}" name="price">
+                    <input type="hidden" value="{{$menu->main_photo->file_path }}"  name="image">
+                    <input type="hidden" value="1" name="quantity">
+                    <button class="btn btn-primary">Pilih</button>
+                </form>
             </div>
         </div>
      </div>
