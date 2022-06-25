@@ -40,7 +40,7 @@ Route::get('/', function () {
 
 Route::get('/scan-qrcode',  [PagesController::class,'scan']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
-Route::get('/table-menu/{$table}', [PagesController::class,'table']);
+Route::get('/table-menu/{table}', [PagesController::class,'table']);
 
 //Shopping Cart
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');

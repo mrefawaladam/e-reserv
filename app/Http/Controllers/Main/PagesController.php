@@ -20,4 +20,9 @@ class PagesController extends Controller
         // dd($menus);
         return view('pages.main.menu', compact('menus'));
     }
+
+    // table search menu
+    public function table($id){  
+        
+    }
 }
