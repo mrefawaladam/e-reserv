@@ -13,39 +13,39 @@ class PhotoSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
+    {
         Photo::insert(
         [
             [
                 'file_path' => 'img1.jpg',
-                'menu_id' => '1', 
+                'menu_id' => '1',
 
             ],
             [
                 'file_path' => 'img1.jpg',
-                'menu_id' => '1', 
+                'menu_id' => '1',
 
             ],
-            
+
             [
                 'file_path' => 'img1.jpg',
-                'menu_id' => '2', 
+                'menu_id' => '2',
 
             ],
-            
+
             [
                 'file_path' => 'img1.jpg',
-                'menu_id' => '3', 
+                'menu_id' => '3',
 
             ],
             [
                 'file_path' => 'img1.jpg',
-                'menu_id' => '4', 
+                'menu_id' => '4',
 
             ],
-            
-            
-            
+
+
+
         ]
     );
     }

@@ -15,7 +15,6 @@
         </div>
     @endif
 
-
      @foreach ($menus as $menu)
      <div class="col-md-3">
          <div class="card" style="width: 18rem;">
@@ -30,7 +29,7 @@
                     <input type="hidden" value="{{ $menu->id }}" name="id">
                     <input type="hidden" value="{{ $menu->name }}" name="name">
                     <input type="hidden" value="{{ $menu->price }}" name="price">
-                    <input type="hidden" value="{{$menu->main_photo->file_path }}"  name="image">
+                    <input type="hidden" value="assets\img\path\{{ $menu->main_photo->file_path  }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
                     <button class="btn btn-primary">Pilih</button>
                 </form>

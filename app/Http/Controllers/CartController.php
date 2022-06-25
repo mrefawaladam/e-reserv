@@ -11,7 +11,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('pages.main.menu', compact('cartItems'));
+        return view('pages.cart.index', compact('cartItems'));
     }
 
 
@@ -26,9 +26,8 @@ class CartController extends Controller
                 'image' => $request->image,
             )
         ]);
-        session()->flash('success', 'Product is Added to Cart Successfully !');
-
-        return redirect()->back();
+        session()->flash('success', $request->name . ' is Added to Cart Successfully !');
+        return redirect()->route('menu-all');
     }
 
     public function updateCart(Request $request)
@@ -51,7 +50,7 @@ class CartController extends Controller
     public function removeCart(Request $request)
     {
         \Cart::remove($request->id);
-        session()->flash('success', 'Item Cart Remove Successfully !');
+        session()->flash('success', $request->name . '  Remove Successfully !');
 
         return redirect()->route('cart.list');
     }
