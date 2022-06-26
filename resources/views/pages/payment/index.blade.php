@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('content')
 <head>
     <title>Payment</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -27,7 +30,7 @@
         <span id="card-header" class="text-gray-100 mt-3">Payment Method</span>
         <select name="method" id="method" class="row row-1 mb-3 text-lg font-bold" style="color: #ffbe33">
             <option value="Cash" class="row row-1 mb-3 text-lg font-bold" style="color: #ffbe33">Cash</option>
-            <option value="QRIS" class="row row-1 mb-3 text-lg font-bold" style="color: #ffbe33">QRIS</option>
+            <option value="QRIS" class="row row-1 mb-3 text-lg font-bold" style="color: #ffbe33">QRcode</option>
         </select>
         <span id="card-header" class="text-gray-100 mt-3 ">Upload Proof Of Payment</span>
         <div class="row row-1 mb-3">
@@ -41,5 +44,4 @@
         </div>
     </form>
 </div>
-
-</html>
+@endsection
