@@ -2,7 +2,7 @@
 
 @section('content')
 <head>
-    <title>Payment</title>
+    <title>PAYMENT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -32,7 +32,7 @@
             <option value="Cash" class="row row-1 mb-3 text-lg font-bold" style="color: #ffbe33">Cash</option>
             <option value="QRIS" class="row row-1 mb-3 text-lg font-bold" style="color: #ffbe33">QRcode</option>
         </select>
-        <span id="card-header" class="text-gray-100 mt-3 ">Upload Proof Of Payment</span>
+        <span id="card-header" class="text-gray-100 mt-3 ">Upload Your Payment Confirmation</span>
         <div class="row row-1 mb-3">
             <div class="col-7" style="color: #ffbe33">
                 <input type="file" name="bukti" id="bukti">

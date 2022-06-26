@@ -23,7 +23,7 @@
 
     <section class="section">
         <div class="section-header">
-            <h1>Menu</h1>
+            <h1>MENU</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -42,7 +42,7 @@
                         @csrf
                         <input type="hidden" class="userid" name="userid" id="userid" value="">
                         <div class="form-group">
-                            <label for="name">Menu Name</label>
+                            <label for="name">Menu</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                 name="name" placeholder="Enter Menu Name">
                             @error('name')

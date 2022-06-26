@@ -13,7 +13,7 @@
                      @endif
                      <div class="card">
                         <div class="card-header p-3 text-center">
-                            <h2>Cart List</h2>
+                            <h2>CART LIST</h2>
                         </div>
                         <div class="card-body">
                             <table class="table" cellspacing="0">
@@ -23,14 +23,14 @@
                                     <th>Photos</th>
                                     <th>Name</th>
                                     <th>Quantity</th>
-                                    <th>price</th>
+                                    <th>Price</th>
                                     <th>Action</th>
                                   </tr>
                                 </thead>
                                 @if (Cart::getTotalQuantity() == 0)
                                     <tr>
                                         <td colspan="6" class="text-center">
-                                            <h4>Cart is empty</h4>
+                                            <h4>Cart is Empty</h4>
                                         </td>
                                     </tr>
                                 @else
@@ -51,7 +51,7 @@
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $item->id}}" >
                                                             <input type="number" name="quantity" value="{{ $item->quantity }}" class="text-center"/>
-                                                            <button type="submit" class="btn btn-primary">update</button>
+                                                            <button type="submit" class="btn btn-primary">Update</button>
                                                         </form>
                                                         </div>
                                                     </div>

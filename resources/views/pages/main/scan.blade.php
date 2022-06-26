@@ -1,4 +1,4 @@
- 
+
 @extends('layouts.main')
 
 @section('content')
@@ -11,12 +11,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h3>Claim Garansi</h3>
+					<h3>WARRANTY CLAIM</h3>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item">Produk</li>
-						<li class="breadcrumb-item">Garansi</li>
+                        <li class="breadcrumb-item">Product</li>
+						<li class="breadcrumb-item">Warranty</li>
 						<li class="breadcrumb-item active">Create</li>
 					</ol>
 				</div>
@@ -34,26 +34,26 @@
                         <div class="row   mb-4 p-4">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Pilih Device Kamera</label>
+                                    <label>Choose Camera Device</label>
                                     <select class="form-control" id="pilihKamera" style="max-width:400px"></select>
                                 </div>
                                 <video id="previewKamera" style="height: 300px;"></video>
                             </div>
                             <div class="col-md-6">
-                                <h4>Lakukan Scan Barcode</h4>
-                                <p>Data Akan Muncul Di bawah ini</p>
+                                <h4>Scan Barcode</h4>
+                                <p>The Data Will Appear Below</p>
                                 <div class="result"></div>
                             </div>
                         </div>
-                 
+
                     </div>
-      
+
 				</div>
 				<!-- /.card -->
 			</div>
 			<!-- /.col -->
 			<!-- /.content -->
-			
+
 			<!-- /.col -->
 		</div>
 	</section>
@@ -73,8 +73,8 @@
             base_url = "http://127.0.0.1:8000/";
         }else{
             base_url = "https://"+window.location.hostname+"/";
-        } 
- 
+        }
+
         $(document).on('change','#pilihKamera',function(){
             selectedDeviceId = $(this).val();
             if(codeReader){
@@ -82,7 +82,7 @@
                 initScanner()
             }
         })
- 
+
         function initScanner() {
             codeReader
             .listVideoInputDevices()
@@ -90,7 +90,7 @@
                 videoInputDevices.forEach(device =>
                     console.log(`${device.label}, ${device.deviceId}`)
                 );
-                
+
                 if(videoInputDevices.length > 0){
                      if(selectedDeviceId == null){
                         if(videoInputDevices.length > 1){
@@ -99,8 +99,8 @@
                             selectedDeviceId = videoInputDevices[0].deviceId
                         }
                     }
-                     
-                     
+
+
                     if (videoInputDevices.length >= 1) {
                         sourceSelect.html('');
                         videoInputDevices.forEach((element) => {
@@ -112,12 +112,12 @@
                             }
                             sourceSelect.append(sourceOption)
                         })
-                 
+
                     }
                     codeReader
                         .decodeOnceFromVideoDevice(selectedDeviceId, 'previewKamera')
                         .then(result => {
- 
+
                             //hasil scan
                             var nogar = result.text;
                             var isi = '';
@@ -151,20 +151,20 @@
                                     console.log(ex);
                                     // console.log("Err", response);
                                 }
-                                
+
                             });
                             // $("#hasilscan").val(result.text);
-                            
+
                             if(codeReader){
                                 codeReader.reset()
                             }
                         })
                         .catch(err => console.error(err));
-                     
+
                 } else {
                     Swal({
-                        title: "Gagal", 
-                        text: "Kamera tidak terdeteksi", 
+                        title: "Gagal",
+                        text: "Kamera tidak terdeteksi",
                         type: "error",
                         allowOutsideClick: false,
                         confirmButtonText: 'Kembali',
@@ -177,18 +177,18 @@
             })
             .catch(err => console.error(err));
         }
- 
- 
+
+
         if (navigator.mediaDevices) {
-             
- 
+
+
             initScanner()
-             
- 
+
+
         } else {
             Swal({
-                title: "Gagal", 
-                text: "Kamera tidak dapat diakses", 
+                title: "Gagal",
+                text: "Kamera tidak dapat diakses",
                 type: "error",
                 allowOutsideClick: false,
                 confirmButtonText: 'Kembali',
@@ -198,10 +198,10 @@
                 }
             });
         }
-       
-     </script> 
+
+     </script>
 @endpush
 
-@push('customStyle')  
+@push('customStyle')
 
 @endpush
