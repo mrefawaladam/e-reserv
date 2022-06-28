@@ -29,7 +29,7 @@ class CartController extends Controller
             )
         ]);
         session()->flash('success', $request->name . ' is Added to Cart Successfully !');
-        return redirect()->route('menu-all');
+        return redirect()->back();
     }
 
     public function updateCart(Request $request)
