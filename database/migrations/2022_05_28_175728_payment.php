@@ -15,9 +15,9 @@ class Payment extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('method');
             $table->string('file_path');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class Payment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment');
+        Schema::dropIfExists('payments');
     }
 }

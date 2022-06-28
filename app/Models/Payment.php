@@ -9,7 +9,7 @@ class Payment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'methode',
+        'method',
         'file_path',
     ];
 }

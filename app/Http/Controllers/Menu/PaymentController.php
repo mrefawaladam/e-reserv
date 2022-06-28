@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreTableRequest;
-use App\Http\Requests\UpdateTableRequest;
+use Illuminate\Http\Request; 
 
 class PaymentController extends Controller
 {
@@ -17,9 +15,15 @@ class PaymentController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+        $payments = Request::all();
+        return view('pages.payment.index',compact('payments'));
+=======
         //
+        $cartItems = \Cart::getContent();
         $payment = Payment::all();
-        return view('pages.payment.index',compact('payment'));
+        return view('pages.payment.index',compact('payment','cartItems'));
+>>>>>>> fad13b7c65ebb0e2aa75d94af2423edc0ab1b64c
     }
 
     /**
@@ -29,7 +33,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.payment.create');
     }
 
     /**
@@ -40,7 +44,12 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Payment::create([
+
+        ]);
+
+        return redirect()->route('payment.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -62,7 +71,7 @@ class PaymentController extends Controller
      */
     public function edit(Payment $payment)
     {
-        //
+        return view('pages.payment.edit',compact('payment'));
     }
 
     /**
