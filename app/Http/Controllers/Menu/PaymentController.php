@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
@@ -15,15 +15,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $payments = Request::all();
-        return view('pages.payment.index',compact('payments'));
-=======
         //
-        $cartItems = \Cart::getContent();
         $payment = Payment::all();
-        return view('pages.payment.index',compact('payment','cartItems'));
->>>>>>> fad13b7c65ebb0e2aa75d94af2423edc0ab1b64c
+        return view('pages.payment.index',compact('payment'));
     }
 
     /**
@@ -44,11 +38,19 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->file('file')){
 
-        Payment::create([
-
-        ]);
-
+            $foto_barcode = $request->file('file');
+            $name_foto_barcode  = time()."_".$foto_barcode->getClientOriginalName();
+            $location = public_path('/assets/img/path');
+            $foto_barcode->move($location,$name_foto_barcode);
+            Payment::create([
+                'method'   => $request->method,
+                'file_path' => $name_foto_barcode,
+            ]);
+        }else{
+            $name_foto_barcode = "noname.jpg";
+        }
         return redirect()->route('payment.index')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -83,7 +85,22 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        //
+        // $payment->update($request->validated());
+
+        // return redirect()->route('payment.index')->with('success', 'Data berhasil di ubah');
+        if($request->file('file')){
+            $foto_barcode = $request->file('file');
+            $name_foto_barcode  = time()."_".$foto_barcode->getClientOriginalName();
+            $location = public_path('/assets/img/path');
+            $foto_barcode->move($location,$name_foto_barcode);
+        }else{
+            $name_foto_barcode = "noname.jpg";
+        }
+        Payment::where('id',$payment->id)->update([
+            'method'   => $request->method,
+            'file_path' => $name_foto_barcode,
+        ]);
+        return redirect()->route('payment.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -94,6 +111,7 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        $payment->delete();
+        return redirect()->route('payment.index')->with('success', 'Data berhasil di hapus');
     }
 }

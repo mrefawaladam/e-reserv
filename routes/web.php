@@ -39,7 +39,6 @@ Route::get('/', function () {
     return view('layouts.main');
 });
 
-Route::resource('payment', PaymentController::class);
 Route::get('/scan-qrcode',  [PagesController::class,'scan']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{qrcode}', [PagesController::class,'table']);
@@ -75,7 +74,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('menu',MenuController::class);
     // table list
     Route::resource('table', TableController::class);
-
+    //payment
+    Route::resource('payment',PaymentController::class);
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role
         Route::resource('role', RoleController::class);
