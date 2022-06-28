@@ -73,13 +73,32 @@
                             </table>
                                 <div class="row text-center">
                                     <div class="row">
-                                        <div class="col text">
+                                        <div class="col text pt-3">
                                                 <strong>Total: Rp{{ Cart::getTotal() }}</strong>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-4 pt-2">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                  <label class="input-group-text" for="inputGroupSelect01">Payment Method</label>
+                                                </div>
+                                                <select class="custom-select" id="inputGroupSelect01" required>
+                                                  <option hidden value="" >Choose Your Payment Method</option>
+                                                  @foreach ($payment as $item)
+                                                    <option value="{{ $item->method }}">{{ $item->method }}</option>
+                                                  @endforeach
+                                                </select>
+                                              </div>
+                                          </div>
+                                        <div class="col pt-2">
                                             <form action="{{ route('cart.clear') }}" method="POST">
                                                 @csrf
                                                 <button class="btn btn-danger">Remove All Cart</button>
+                                            </form>
+                                        </div>
+                                        <div class="col pt-2">
+                                            <form action="{{ route('payment.index') }}" method="POST">
+                                                @csrf
+                                                <button class="btn btn-primary">Checkout</button>
                                             </form>
                                         </div>
                                       </div>

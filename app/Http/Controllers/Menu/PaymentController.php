@@ -15,8 +15,15 @@ class PaymentController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $payments = Request::all();
         return view('pages.payment.index',compact('payments'));
+=======
+        //
+        $cartItems = \Cart::getContent();
+        $payment = Payment::all();
+        return view('pages.payment.index',compact('payment','cartItems'));
+>>>>>>> fad13b7c65ebb0e2aa75d94af2423edc0ab1b64c
     }
 
     /**

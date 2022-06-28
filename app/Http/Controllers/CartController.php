@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use App\Models\Payment;
 
 class CartController extends Controller
 {
     public function cartList()
     {
         $cartItems = \Cart::getContent();
+        $payment = Payment::all();
         // dd($cartItems);
-        return view('pages.cart.index', compact('cartItems'));
+        return view('pages.cart.index', compact('cartItems', 'payment'));
     }
 
 

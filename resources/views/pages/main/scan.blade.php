@@ -6,7 +6,7 @@
 <br><br><br>
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
- 
+
 	<!-- Main content -->
 	<section class="content">
 		<div class="row">
@@ -104,7 +104,7 @@
                             //hasil scan
                             var valueTable = result.text;
                             window.location = 'http://127.0.0.1:8000/table-menu/'+valueTable;
-                          
+
                             // $("#hasilscan").val(result.text);
 
                             if(codeReader){
