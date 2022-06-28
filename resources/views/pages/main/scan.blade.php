@@ -5,29 +5,7 @@
 <!-- Main Content -->
 <br><br><br>
  <!-- Content Wrapper. Contains page content -->
-<<<<<<< HEAD
  <div class="content-wrapper"> 
-=======
- <div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h3>WARRANTY CLAIM</h3>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item">Product</li>
-						<li class="breadcrumb-item">Warranty</li>
-						<li class="breadcrumb-item active">Create</li>
-					</ol>
-				</div>
-			</div>
-		</div><!-- /.container-fluid -->
-	</section>
-
->>>>>>> 3e626c42ba7c16914b23744e6b3126c5556b91d1
 	<!-- Main content -->
 	<section class="content">
 		<div class="row">
