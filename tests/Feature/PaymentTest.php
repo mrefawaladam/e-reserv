@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Models\Table;
+use App\Models\Payment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class TableTest extends TestCase
+class PaymentTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -15,15 +15,14 @@ class TableTest extends TestCase
      *
      * @return void
      */
-    public function test_user_bisa_lihat_halaman_daftar_table()
+    public function test_user_bisa_lihat_halaman_daftar_payment()
     {
         //seed db
         $this->seed();
-        $response = $this->get("/table");
+        $response = $this->get("/payment");
         $response->assertStatus(200);
-        $response->assertSeeText("Name");
-        $response->assertSeeText("Status");
-        $response->assertSeeText("Qrcode");
+        $response->assertSeeText("Method");
+        $response->assertSeeText("File Path");
 
     }
 }
