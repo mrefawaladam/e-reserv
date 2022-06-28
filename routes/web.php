@@ -42,7 +42,7 @@ Route::get('/', function () {
 Route::get('/scan-qrcode',  [PagesController::class,'scan']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{qrcode}', [PagesController::class,'table']);
-Rule::get('/print-nota', [PagesController::class,'pintNota']);
+Route::get('/print-nota/{id}', [PagesController::class,'printNota']);
 //Transaction
 Route::resource('/transaction', TransactionController::class);
 
