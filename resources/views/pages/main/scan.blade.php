@@ -6,16 +6,6 @@
 <br><br><br>
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h3>Scan QR Code</h3>
-				</div>
-			</div>
-		</div><!-- /.container-fluid -->
-	</section>
 
 	<!-- Main content -->
 	<section class="content">
@@ -112,40 +102,9 @@
                         .then(result => {
 
                             //hasil scan
-                            var nogar = result.text;
-                            var isi = '';
-                            $.ajax({
-                                url: base_url+'customer/ClaimGaransiC/show/'+nogar,
-                                type: 'post',
-                                dataType: "json",
-                                success: function(response) {
-                                    if(response.status == 'success'){
-                                        var isi = `
-                                        <div class="alert alert-success">
-                                            <h5><i class="icon fas fa-check"></i> `+response.msg+`</h5>
-                                            Silahkan klik Ajukan Garansi
-                                        </div>
-                                        <form action="`+base_url+`customer/ClaimGaransiC/makepengajuan" method="POST">
-                                        <input type="hidden" value="`+nogar+`" name="no_garansi">
-                                        <button type="submit" class="btn btn-primary w-100">Ajukan Garansi</button>
-                                        </form>
-                                        `;
-                                    }
-                                    else{
-                                        var isi = `
-                                        <div class="alert alert-danger">
-                                            <h5><i class="icon fas fa-ban"></i> `+response.msg+`</h5>
-                                        </div>
-                                        `;
-                                    }
-                                    $('.result').html(isi);
-                                },
-                                error: function (jqXHR, textStatus, ex) {
-                                    console.log(ex);
-                                    // console.log("Err", response);
-                                }
+                            var valueTable = result.text;
+                            window.location = 'http://127.0.0.1:8000/table-menu/'+valueTable;
 
-                            });
                             // $("#hasilscan").val(result.text);
 
                             if(codeReader){

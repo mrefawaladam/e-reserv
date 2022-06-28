@@ -65,9 +65,7 @@
 
                         <div class="form-group">
                             <label for="name">Photos</label>
-                            <div id="dropzoneDragArea" class="dz-default dz-message dropzoneDragArea">
-                                <span>Upload file</span>
-                            </div>
+                            <input type="text" class>
                             <div class="dropzone-previews"></div>
                         </div>
 
