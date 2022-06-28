@@ -21,7 +21,6 @@ class CartTest extends TestCase
         $this->seed();
         $response = $this->get("/cart");
         $response->assertStatus(200);
-        $response->assertSeeText("No");
         $response->assertSeeText("Photos");
         $response->assertSeeText("Name");
         $response->assertSeeText("Quantity");
