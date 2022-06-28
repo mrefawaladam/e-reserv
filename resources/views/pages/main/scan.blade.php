@@ -1,11 +1,33 @@
- 
+
 @extends('layouts.main')
 
 @section('content')
 <!-- Main Content -->
 <br><br><br>
  <!-- Content Wrapper. Contains page content -->
+<<<<<<< HEAD
  <div class="content-wrapper"> 
+=======
+ <div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h3>WARRANTY CLAIM</h3>
+				</div>
+				<div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">Product</li>
+						<li class="breadcrumb-item">Warranty</li>
+						<li class="breadcrumb-item active">Create</li>
+					</ol>
+				</div>
+			</div>
+		</div><!-- /.container-fluid -->
+	</section>
+
+>>>>>>> 3e626c42ba7c16914b23744e6b3126c5556b91d1
 	<!-- Main content -->
 	<section class="content">
 		<div class="row">
@@ -16,26 +38,26 @@
                         <div class="row   mb-4 p-4">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Pilih Device Kamera</label>
+                                    <label>Choose Camera Device</label>
                                     <select class="form-control" id="pilihKamera" style="max-width:400px"></select>
                                 </div>
                                 <video id="previewKamera" style="height: 300px;"></video>
                             </div>
                             <div class="col-md-6">
-                                <h4>Lakukan Scan Barcode</h4>
-                                <p>Data Akan Muncul Di bawah ini</p>
+                                <h4>Scan Barcode</h4>
+                                <p>The Data Will Appear Below</p>
                                 <div class="result"></div>
                             </div>
                         </div>
-                 
+
                     </div>
-      
+
 				</div>
 				<!-- /.card -->
 			</div>
 			<!-- /.col -->
 			<!-- /.content -->
-			
+
 			<!-- /.col -->
 		</div>
 	</section>
@@ -55,8 +77,8 @@
             base_url = "http://127.0.0.1:8000/";
         }else{
             base_url = "https://"+window.location.hostname+"/";
-        } 
- 
+        }
+
         $(document).on('change','#pilihKamera',function(){
             selectedDeviceId = $(this).val();
             if(codeReader){
@@ -64,7 +86,7 @@
                 initScanner()
             }
         })
- 
+
         function initScanner() {
             codeReader
             .listVideoInputDevices()
@@ -72,7 +94,7 @@
                 videoInputDevices.forEach(device =>
                     console.log(`${device.label}, ${device.deviceId}`)
                 );
-                
+
                 if(videoInputDevices.length > 0){
                      if(selectedDeviceId == null){
                         if(videoInputDevices.length > 1){
@@ -81,8 +103,8 @@
                             selectedDeviceId = videoInputDevices[0].deviceId
                         }
                     }
-                     
-                     
+
+
                     if (videoInputDevices.length >= 1) {
                         sourceSelect.html('');
                         videoInputDevices.forEach((element) => {
@@ -94,28 +116,65 @@
                             }
                             sourceSelect.append(sourceOption)
                         })
-                 
+
                     }
                     codeReader
                         .decodeOnceFromVideoDevice(selectedDeviceId, 'previewKamera')
                         .then(result => {
- 
+
                             //hasil scan
+<<<<<<< HEAD
                             var valueTable = result.text;
                             window.location = 'http://127.0.0.1:8000/table-menu/'+valueTable;
                           
+=======
+                            var nogar = result.text;
+                            var isi = '';
+                            $.ajax({
+                                url: base_url+'customer/ClaimGaransiC/show/'+nogar,
+                                type: 'post',
+                                dataType: "json",
+                                success: function(response) {
+                                    if(response.status == 'success'){
+                                        var isi = `
+                                        <div class="alert alert-success">
+                                            <h5><i class="icon fas fa-check"></i> `+response.msg+`</h5>
+                                            Silahkan klik Ajukan Garansi
+                                        </div>
+                                        <form action="`+base_url+`customer/ClaimGaransiC/makepengajuan" method="POST">
+                                        <input type="hidden" value="`+nogar+`" name="no_garansi">
+                                        <button type="submit" class="btn btn-primary w-100">Ajukan Garansi</button>
+                                        </form>
+                                        `;
+                                    }
+                                    else{
+                                        var isi = `
+                                        <div class="alert alert-danger">
+                                            <h5><i class="icon fas fa-ban"></i> `+response.msg+`</h5>
+                                        </div>
+                                        `;
+                                    }
+                                    $('.result').html(isi);
+                                },
+                                error: function (jqXHR, textStatus, ex) {
+                                    console.log(ex);
+                                    // console.log("Err", response);
+                                }
+
+                            });
+>>>>>>> 3e626c42ba7c16914b23744e6b3126c5556b91d1
                             // $("#hasilscan").val(result.text);
-                            
+
                             if(codeReader){
                                 codeReader.reset()
                             }
                         })
                         .catch(err => console.error(err));
-                     
+
                 } else {
                     Swal({
-                        title: "Gagal", 
-                        text: "Kamera tidak terdeteksi", 
+                        title: "Gagal",
+                        text: "Kamera tidak terdeteksi",
                         type: "error",
                         allowOutsideClick: false,
                         confirmButtonText: 'Kembali',
@@ -128,18 +187,18 @@
             })
             .catch(err => console.error(err));
         }
- 
- 
+
+
         if (navigator.mediaDevices) {
-             
- 
+
+
             initScanner()
-             
- 
+
+
         } else {
             Swal({
-                title: "Gagal", 
-                text: "Kamera tidak dapat diakses", 
+                title: "Gagal",
+                text: "Kamera tidak dapat diakses",
                 type: "error",
                 allowOutsideClick: false,
                 confirmButtonText: 'Kembali',
@@ -149,10 +208,10 @@
                 }
             });
         }
-       
-     </script> 
+
+     </script>
 @endpush
 
-@push('customStyle')  
+@push('customStyle')
 
 @endpush
