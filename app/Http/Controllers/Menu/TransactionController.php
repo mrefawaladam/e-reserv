@@ -46,9 +46,12 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show($id)
     {
-        //
+        $transaction = Transaction::where('id', $id)->with('user','transactionDetails.menu','table','payment')->first();;
+   
+        return view('pages.transaction.show',compact('transaction'));
+
     }
 
     /**
