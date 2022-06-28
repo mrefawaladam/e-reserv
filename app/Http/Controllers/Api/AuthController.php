@@ -31,22 +31,17 @@ class AuthController extends Controller
         return $user->createToken($request->device_name)->plainTextToken;
     }
 
-    public function register(Request $request)
+    public function reg(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => ['required', 'string', 'min:8', 'confirmed', Password::defaults()],
-            'device_name' => 'required',
-        ]);
+
 
         $user = User::create([
             'name' => $request->name,
+            'email_verified_at' => now(),
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        return $user->createToken($request->device_name)->plainTextToken;
+        return redirect('login');
     }
 
     public function logout(Request $request)

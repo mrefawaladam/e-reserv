@@ -18,6 +18,7 @@ use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\Menu\MenuGroupController;
 
 use App\Http\Controllers\RoleAndPermission\RoleController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\RoleAndPermission\ExportRoleController;
 // Main
 use App\Http\Controllers\RoleAndPermission\ImportRoleController;
@@ -42,6 +43,7 @@ Route::get('/', function () {
 });
 
 Route::get('/scan-qrcode',  [PagesController::class,'scan']);
+Route::post('/reg',  [AuthController::class,'reg']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{qrcode}', [PagesController::class,'table']);
 Route::get('/print-nota/{id}', [PagesController::class,'printNota']);
@@ -77,7 +79,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::resource('menu',MenuController::class);
     // table list
-    Route::resource('table', TableController::class);   
+    Route::resource('table', TableController::class);
     //payment
     Route::resource('payment',PaymentController::class);
     // transaction process
