@@ -24,18 +24,6 @@ class PaymentSeeder extends Seeder
                     'method' => 'QRCode',
                     'file_path' => 'img2.jpg',
                 ],
-                [
-                    'method' => 'Cash',
-                    'file_path' => 'img2.jpg',
-                ],
-                [
-                    'method' => 'QRCode',
-                    'file_path' => 'img2.jpg',
-                ],
-                [
-                    'method' => 'Cash',
-                    'file_path' => 'img2.jpg',
-                ],
             ]
         );
     }

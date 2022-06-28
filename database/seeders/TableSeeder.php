@@ -18,39 +18,36 @@ class TableSeeder extends Seeder
             [
                 [
                     'name' => '1',
-                    'status' => 'Paid off',
+                    'status' => 'occupied',
                     'barcode' => '123',
 
                 ],
                 [
                     'name' => '2',
-                    'status' => 'Paid off',
+                    'status' => 'empty',
                     'barcode' => '456',
 
                 ],
 
                 [
                     'name' => '3',
-                    'status' => 'Paid off',
+                    'status' => 'occupied',
                     'barcode' => '789',
 
                 ],
 
                 [
                     'name' => '4',
-                    'status' => 'Paid off',
+                    'status' => 'empty',
                     'barcode' => '321',
 
                 ],
                 [
                     'name' => '5',
-                    'status' => 'Paid off',
+                    'status' => 'occupied',
                     'barcode' => '654',
 
                 ],
-
-
-
             ]
         );
         }
