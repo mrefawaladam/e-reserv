@@ -38,11 +38,11 @@
                     <h4>Validation</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('menu.store') }}" method="post" name="CreateForm" id="CreateForm">
+                    <form action="{{ route('menu.store') }}" method="post" name="CreateForm" id="CreateForm" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" class="userid" name="userid" id="userid" value="">
                         <div class="form-group">
-                            <label for="name">Menu</label>
+                            <label for="name">Name</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                 name="name" placeholder="Enter Menu Name">
                             @error('name')
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Quantity</label>
+                            <label for="qty">Quantity</label>
                             <input type="number" class="form-control @error('qty') is-invalid @enderror" id="qty"
                                 name="qty" placeholder="Enter Quantity">
                             @error('qty')
@@ -63,35 +63,53 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
+                                name="price" placeholder="Enter Price">
+                            @error('price')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
+                                name="description" placeholder="Enter Description">
+                            @error('description')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                         <!-- input file -->
                         <div class="input-group control-group increment" >
                         <input type="file" name="filename[]" class="form-control">
-                        <div class="input-group-btn"> 
+                        <div class="input-group-btn">
                             <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                         </div>
                         </div>
                         <div class="clone hide">
                         <div class="control-group input-group" style="margin-top:10px">
                             <input type="file" name="filename[]" class="form-control">
-                            <div class="input-group-btn"> 
+                            <div class="input-group-btn">
                             <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
                             </div>
                         </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
-
                         <!-- end input file -->
                 </div>
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Submit</button>
-                    <a class="btn btn-secondary" href="{{ route('user.index') }}">Cancel</a>
                 </div>
                 </form>
             </div>
         </div>
     </section>
- 
+
 @endsection
 @push('customScript')
 <script type="text/javascript">
@@ -99,12 +117,12 @@
 
 $(document).ready(function() {
 
-  $(".btn-success").click(function(){ 
+  $(".btn-success").click(function(){
       var html = $(".clone").html();
       $(".increment").after(html);
   });
 
-  $("body").on("click",".btn-danger",function(){ 
+  $("body").on("click",".btn-danger",function(){
       $(this).parents(".control-group").remove();
   });
 

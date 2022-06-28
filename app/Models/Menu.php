@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['name', 'qty', 'price','description','status','user_id'];
     public function photo()
     {
         return $this->hasMany(Photo::class );
