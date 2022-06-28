@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\Menu\TransactionController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Menu\TransactionController as MenuTransactionController;
 use App\Http\Controllers\Main\PagesController;
