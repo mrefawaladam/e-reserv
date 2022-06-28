@@ -16,13 +16,14 @@ class PagesController extends Controller
 
     // menu
     public function menu(){
-        $menus = Menu::with('main_photo')->get();
-        // dd($menus);
+        $menus = Menu::with('main_photo')->get(); 
         return view('pages.main.menu', compact('menus'));
     }
 
     // table search menu
-    public function table($id){  
-        
+    public function table($qrcode){
+        session()->put('qrcode',$qrcode); 
+        $menus = Menu::with('main_photo')->get(); 
+        return view('pages.main.menu', compact('menus'));
     }
 }
