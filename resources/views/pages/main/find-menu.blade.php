@@ -5,6 +5,12 @@
 <br><br>
 <h2 class="text-center">MENU LIST</h2>
 
+@if(session()->get('qrcode'))
+<?php  
+$table = App\Models\Table::where('barcode',$qrcode)->first();   
+?>
+<h4 class="text-center">   {{ $table->name }}</h4>  
+@endif
 
     
 <br>

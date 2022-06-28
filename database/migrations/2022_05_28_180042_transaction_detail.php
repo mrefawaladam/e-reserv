@@ -15,10 +15,11 @@ class TransactionDetail extends Migration
     {
         Schema::create('transaction_details', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('menu_id');
             $table->integer('qty');
+            $table->integer('transaction_id');
             $table->integer('price');
+            $table->timestamps();
         });
     }
 

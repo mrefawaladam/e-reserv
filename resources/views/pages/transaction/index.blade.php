@@ -4,7 +4,7 @@
      <!-- Main Content -->
      <section class="section">
         <div class="section-header">
-            <h1>Menu List</h1>
+            <h1>Menu Group and Menu Item</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -12,6 +12,7 @@
             </div>
         </div>
         <div class="section-body">
+            <h2 class="section-title">Menu Item Management</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -25,15 +26,15 @@
                             <h4>Menu Item List</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary"
-                                    href="{{ route('menu.create') }}">Create New
-                                    Menu</a>
+                                    href="{{ route('menu-item.create') }}">Create New
+                                    Menu Item</a>
 
                             </div>
                         </div>
                         <div class="card-body">
 
                             <div class="show-search mb-3" style="display: none">
-                                <form id="search" method="GET" action="{{ route('menu.index') }}">
+                                <form id="search" method="GET" action="{{ route('menu-item.index') }}">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="role">Menu Item</label>
@@ -43,7 +44,7 @@
                                     </div>
                                     <div class="text-right">
                                         <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a class="btn btn-secondary" href="{{ route('menu.index') }}">Reset</a>
+                                        <a class="btn btn-secondary" href="{{ route('menu-item.index') }}">Reset</a>
                                     </div>
                                 </form>
                             </div>
@@ -51,38 +52,27 @@
                                 <table class="table table-bordered table-md" id="tableData">
                                     <thead>
                                     <tr class="text-center">
-                                        <th>No</th>
-                                        <th>Name</th>
+                                        <th>#</th>
+                                        <th>Kode Transaction</th>
+                                        <th>Meja</th>   
                                         <th>Status</th>
-                                        <th>Quantity</th>
-                                        <th class="text-right">Action</th>
+                                        <th class="text-right">Detail</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($menus as $key => $menu)
+                                        @foreach ($transactions as $key => $transaction)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $menu->name }}</td>
-                                                <td>{{ $menu->status }}</td>
-                                                <td>{{ $menu->qty}}</td>
+                                                <td>{{ $transaction->id }}</td>
+                                                <td>{{ $transaction->table->name }}</td>
+                                                <td>{{ $transaction->status }}</td>
+                                                <td>
 
-
-
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
-                                                        <a href="{{ route('menu.edit', $menu->id) }}"
+                                                <a href="{{ route('transaction-prcesshf.edit', $transaction->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
                                                             Edit</a>
-                                                        <form action="{{ route('menu.destroy', $menu->id) }}"
-                                                            method="POST" class="ml-2">
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}">
-                                                            <button class="btn btn-sm btn-danger btn-icon "><i
-                                                                    class="fas fa-times"></i> Delete </button>
-                                                        </form>
-                                                    </div>
+
                                                 </td>
                                             </tr>
                                         @endforeach

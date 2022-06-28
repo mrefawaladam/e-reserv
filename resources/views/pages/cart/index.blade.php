@@ -71,20 +71,23 @@
                                         @endforeach
                                     </tbody>
                             </table>
+                            <form action="{{ url('store-checkout') }}" method="post">
+                            @csrf
+
                                 <div class="row text-center">
                                     <div class="row">
                                         <div class="col text pt-3">
                                                 <strong>Total: Rp{{ Cart::getTotal() }}</strong>
-                                        </div>
+                                            </div>
                                         <div class="col-4 pt-2">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                   <label class="input-group-text" for="inputGroupSelect01">Payment Method</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect01" required>
+                                                <select class="custom-select"  name="paymentMethod" id="paymentMethodinputGroupSelect01" required>
                                                   <option hidden value="" >Choose Your Payment Method</option>
                                                   @foreach ($payment as $item)
-                                                    <option value="{{ $item->method }}">{{ $item->method }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->method }}</option>
                                                   @endforeach
                                                 </select>
                                               </div>
@@ -96,17 +99,17 @@
                                             </form>
                                         </div>
                                         <div class="col pt-2">
-                                            <form action="{{ route('payment.index') }}" method="POST">
-                                                @csrf
-                                                <button class="btn btn-primary">Checkout</button>
-                                            </form>
+                                            
+                                                <button class="btn btn-primary" type="submit">Checkout</button>
+                                            
                                         </div>
-                                      </div>
-                                  </div>
-                              </div>
+                                    </div>
+                                </div>
+                            </div>
                             @endif
-                      </div>
-                </div>
+                        </form>
+                        </div>
+                    </div>
             </div>
         </main>
     @endsection

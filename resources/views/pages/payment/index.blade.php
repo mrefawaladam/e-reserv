@@ -4,7 +4,7 @@
      <!-- Main Content -->
      <section class="section">
         <div class="section-header">
-            <h1>Menu List</h1>
+            <h1>Payment Method</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -22,11 +22,11 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Menu Item List</h4>
+                            <h4>Payment Method List</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary"
-                                    href="{{ route('menu.create') }}">Create New
-                                    Menu</a>
+                                    href="{{ route('payment.create') }}">Create New
+                                    Payment Method</a>
 
                             </div>
                         </div>
@@ -52,29 +52,24 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                        <th>Quantity</th>
-                                        <th class="text-right">Action</th>
+                                        <th>Method</th>
+                                        <th>File Path</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($menus as $key => $menu)
+                                        @foreach ($payment as $key => $payment)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $menu->name }}</td>
-                                                <td>{{ $menu->status }}</td>
-                                                <td>{{ $menu->qty}}</td>
-
-
-
-                                                <td class="text-right">
-                                                    <div class="d-flex justify-content-end">
-                                                        <a href="{{ route('menu.edit', $menu->id) }}"
+                                                <td>{{ $payment->method }}</td>
+                                                <td><img width="200" src="assets\img\path\{{$payment->file_path}}" alt=""></td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="{{ route('payment.edit', $payment->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
                                                             Edit</a>
-                                                        <form action="{{ route('menu.destroy', $menu->id) }}"
+                                                        <form action="{{ route('payment.destroy', $payment->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <input type="hidden" name="_token"
