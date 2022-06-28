@@ -23,26 +23,22 @@ class PhotoSeeder extends Seeder
             ],
             [
                 'file_path' => 'img2.jpg',
-                'menu_id' => '1',
-
-            ],
-
-            [
-                'file_path' => 'img3.jpg',
                 'menu_id' => '2',
 
             ],
 
             [
-                'file_path' => 'img4.jpg',
+                'file_path' => 'img3.jpg',
                 'menu_id' => '3',
 
             ],
+
             [
-                'file_path' => 'img1.jpg',
+                'file_path' => 'img4.jpg',
                 'menu_id' => '4',
 
             ],
+
 
 
 
