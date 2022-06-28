@@ -34,7 +34,7 @@ class PagesController extends Controller
         $qrcode =  session()->get('qrcode'); 
 
         $menus = Menu::with('main_photo')->get(); 
-        return view('pages.main.menu', compact('menus', 'qrcode'));
+        return view('pages.main.find-menu', compact('menus', 'qrcode'));
     }
 
     // chckout proses
@@ -70,7 +70,8 @@ class PagesController extends Controller
     public function printNota($id){
         
         $transaction = Transaction::where('id', $id)->with('transactionDetails','table')->first();  
-        return view('main.nota',compact('transaction'));
+        // dd($transaction);
+        return view('pages.main.nota',compact('transaction'));
 
     }
 

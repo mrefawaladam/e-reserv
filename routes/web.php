@@ -6,15 +6,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Menu\MenuController;
+use App\Http\Controllers\Menu\TransactionController as MenuTransactionController;
 use App\Http\Controllers\Main\PagesController;
 // Role Permissions
 use App\Http\Controllers\Menu\MajorController;
 use App\Http\Controllers\Menu\TableController;
-use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Menu\PaymentController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\Menu\MenuGroupController;
+
 use App\Http\Controllers\RoleAndPermission\RoleController;
 use App\Http\Controllers\RoleAndPermission\ExportRoleController;
 // Main
@@ -75,9 +77,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::resource('menu',MenuController::class);
     // table list
-    Route::resource('table', TableController::class);
+    Route::resource('table', TableController::class);   
     //payment
     Route::resource('payment',PaymentController::class);
+    // transaction process
+    Route::resource('transaction-prcess',MenuTransactionController::class);
+
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role
         Route::resource('role', RoleController::class);
