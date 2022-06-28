@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Menu;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use App\Models\Photo;
 
 class MenuController extends Controller
 {
@@ -37,15 +38,34 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validated();
-
-        Menu::create([
+        // dd($request);
+        // $request->validated();
+        $menu = Menu::create([
             'name'   => $request->name,
             'qty' => $request->qty,
-            'photo' => $request->photo,
+            'status' => "available",
+            'user_id' => auth()->user()->id,
+            'price' => $request->price,
+            'description' => $request->description,
         ]);
 
-        return redirect()->route('table.index')->with('success', 'Data berhasil ditambahkan');
+        // dd($request->hasFile('filename'));
+        if($request->hasfile('filename'))
+         {
+
+            foreach($request->file('filename') as $file)
+            {
+                $name=$file->getClientOriginalName();
+                $file->move(public_path().'/assets/img/path/', $name);
+               Photo::create([
+                    'file_path' => $name,
+                    'menu_id' => $menu->id,
+                ]);
+            }
+         }
+
+
+        return redirect()->route('menu.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

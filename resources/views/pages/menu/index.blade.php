@@ -26,7 +26,7 @@
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary"
                                     href="{{ route('menu.create') }}">Create New
-                                    Menu Item</a>
+                                    Menu</a>
 
                             </div>
                         </div>
