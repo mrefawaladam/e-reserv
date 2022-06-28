@@ -82,6 +82,12 @@
                                                 <button class="btn btn-danger">Remove All Cart</button>
                                             </form>
                                         </div>
+                                        <div class="col">
+                                            <form action="{{ route('payment.index') }}" method="POST">
+                                                @csrf
+                                                <button class="btn btn-primary">Checkout</button>
+                                            </form>
+                                        </div>
                                       </div>
                                   </div>
                               </div>

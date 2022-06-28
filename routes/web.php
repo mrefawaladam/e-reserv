@@ -1,28 +1,29 @@
 <?php
 
-use App\Http\Controllers\DemoController;
+use App\Models\User;
 // menu
-use App\Http\Controllers\Menu\MenuGroupController;
-use App\Http\Controllers\Menu\MenuItemController;
-use App\Http\Controllers\Menu\TableController;
-use App\Http\Controllers\Menu\MajorController;
-use App\Http\Controllers\Menu\PaymentController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Menu\MenuController;
+use App\Http\Controllers\Main\PagesController;
 // Role Permissions
+use App\Http\Controllers\Menu\MajorController;
+use App\Http\Controllers\Menu\TableController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\Menu\PaymentController;
+use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\Menu\MenuGroupController;
+use App\Http\Controllers\RoleAndPermission\RoleController;
+use App\Http\Controllers\RoleAndPermission\ExportRoleController;
+// Main
+use App\Http\Controllers\RoleAndPermission\ImportRoleController;
+use App\Http\Controllers\RoleAndPermission\PermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
-use App\Http\Controllers\RoleAndPermission\ExportRoleController;
 use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
-use App\Http\Controllers\RoleAndPermission\ImportRoleController;
-use App\Http\Controllers\RoleAndPermission\PermissionController;
-use App\Http\Controllers\RoleAndPermission\RoleController;
-// Main
-use App\Http\Controllers\Main\PagesController;
-use App\Http\Controllers\Menu\MenuController;
-use Illuminate\Support\Facades\Route;
-use App\Models\User;
-use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +39,13 @@ Route::get('/', function () {
     return view('layouts.main');
 });
 
+Route::resource('payment', PaymentController::class);
 Route::get('/scan-qrcode',  [PagesController::class,'scan']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{$table}', [PagesController::class,'table']);
+
+//Transaction
+Route::resource('/transaction', TransactionController::class);
 
 //Shopping Cart
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -70,8 +75,6 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('menu',MenuController::class);
     // table list
     Route::resource('table', TableController::class);
-
-    Route::resource('payment', PaymentController::class);
 
     Route::group(['prefix' => 'role-and-permission'], function () {
         //role

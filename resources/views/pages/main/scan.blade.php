@@ -11,14 +11,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h3>WARRANTY CLAIM</h3>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item">Product</li>
-						<li class="breadcrumb-item">Warranty</li>
-						<li class="breadcrumb-item active">Create</li>
-					</ol>
+					<h3>Scan QR Code</h3>
 				</div>
 			</div>
 		</div><!-- /.container-fluid -->

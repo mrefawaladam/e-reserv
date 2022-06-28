@@ -18,8 +18,9 @@ class PaymentController extends Controller
     public function index()
     {
         //
+        $cartItems = \Cart::getContent();
         $payment = Payment::all();
-        return view('pages.payment.index',compact('payment'));
+        return view('pages.payment.index',compact('payment','cartItems'));
     }
 
     /**
