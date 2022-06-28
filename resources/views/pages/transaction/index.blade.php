@@ -68,10 +68,10 @@
                                                 <td>{{ $transaction->status }}</td>
                                                 <td>
 
-                                                <a href="{{ route('transaction-prcesshf.edit', $transaction->id) }}"
+                                                <a href="{{ route('transaction-prcess.show', $transaction->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
-                                                                class="fas fa-edit"></i>
-                                                            Edit</a>
+                                                                class="fas fa-eye"></i>
+                                                            Detail</a>
 
                                                 </td>
                                             </tr>
