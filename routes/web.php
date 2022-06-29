@@ -48,7 +48,7 @@ Route::post('/reg',  [AuthController::class,'reg']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{qrcode}', [PagesController::class,'table']);
 Route::get('/print-nota/{id}', [PagesController::class,'printNota'])->name('print-nota');
-//Transaction
+Route::get('/detail-menu/{id}', [PagesController::class,'detailMenu']);
 Route::resource('/transaction', TransactionController::class);
 
 //Shopping Cart
