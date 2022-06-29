@@ -25,11 +25,7 @@
                     <a class="nav-link" href="{{ url('scan-qrcode') }}">Scan QR Code</a>
                  </li>
                   <li class="nav-item">
-<<<<<<< HEAD
-                     <a class="nav-link" href="">Menu</a>
-=======
                      <a class="nav-link" href="{{ url('menu-all') }}">Menu</a>
->>>>>>> b21bb9b29c689ee1e678d785423d7f5c6a364b04
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="{{ url('login') }}">Login</a>
