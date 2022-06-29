@@ -41,7 +41,7 @@ $table = App\Models\Table::where('barcode',$qrcode)->first();
                     <input type="hidden" value="assets\img\path\{{ $menu->main_photo->file_path  }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
                     <button class="btn btn-primary">Choose</button>
-                    <a href="{{ url('detail-menu'.$menu->id) }}">Detail</a>
+                    <a href="{{ url('detail-menu/'.$menu->id) }}">Detail</a>
 
                 </form>
             </div>
