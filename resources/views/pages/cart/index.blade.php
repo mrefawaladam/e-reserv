@@ -99,9 +99,9 @@
                                             </form>
                                         </div>
                                         <div class="col pt-2">
-                                            
+
                                                 <button class="btn btn-primary" type="submit">Checkout</button>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

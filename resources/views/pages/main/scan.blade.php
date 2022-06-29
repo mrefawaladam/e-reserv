@@ -22,11 +22,6 @@
                                 </div>
                                 <video id="previewKamera" style="height: 300px;"></video>
                             </div>
-                            <div class="col-md-6">
-                                <h4>Scan Barcode</h4>
-                                <p>The Data Will Appear Below</p>
-                                <div class="result"></div>
-                            </div>
                         </div>
 
                     </div>

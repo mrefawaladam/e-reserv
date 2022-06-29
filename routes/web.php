@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Menu\TransactionController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\HistoryUserController;
 use App\Http\Controllers\Menu\MenuController;
-use App\Http\Controllers\Menu\TransactionController as MenuTransactionController;
 use App\Http\Controllers\Main\PagesController;
 // Role Permissions
 use App\Http\Controllers\Menu\MajorController;
@@ -17,8 +17,8 @@ use App\Http\Controllers\Menu\PaymentController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\Menu\MenuGroupController;
 
+use App\Http\Controllers\Menu\TransactionController;
 use App\Http\Controllers\RoleAndPermission\RoleController;
-use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\RoleAndPermission\ExportRoleController;
 // Main
 use App\Http\Controllers\RoleAndPermission\ImportRoleController;
@@ -27,6 +27,7 @@ use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\ExportPermissionController;
 use App\Http\Controllers\RoleAndPermission\ImportPermissionController;
+use App\Http\Controllers\Menu\TransactionController as MenuTransactionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,8 +47,12 @@ Route::get('/scan-qrcode',  [PagesController::class,'scan']);
 Route::post('/reg',  [AuthController::class,'reg']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{qrcode}', [PagesController::class,'table']);
+<<<<<<< HEAD
 Route::get('/print-nota/{id}', [PagesController::class,'printNota']); 
 Route::get('/detail-menu/{id}', [PagesController::class,'detailMenu']);
+=======
+Route::get('/print-nota/{id}', [PagesController::class,'printNota'])->name('print-nota');
+>>>>>>> b21bb9b29c689ee1e678d785423d7f5c6a364b04
 //Transaction
 Route::resource('/transaction', TransactionController::class);
 
@@ -77,7 +82,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::resource('menu-group', MenuGroupController::class);
         Route::resource('menu-item', MenuItemController::class);
     });
-
+    Route::resource('history-user',HistoryUserController::class);
     Route::resource('menu',MenuController::class);
     // table list
     Route::resource('table', TableController::class);

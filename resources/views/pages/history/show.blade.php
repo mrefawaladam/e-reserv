@@ -27,11 +27,6 @@
                     <td>Pyament Method : {{ $transaction->payment->method }}</td>
 
                 </tr>
-                <tr>
-                    <td>
-                        <h3 class="text-center">Daftar Menu</h3>
-                    </td>
-                </tr>
                 @foreach ($transaction->transactionDetails as $detail)
                 <tr>
                     <td>Nama Menu : {{ $detail->menu->name }}</td>
@@ -39,15 +34,7 @@
                     <td>Price     : {{ $detail->price }}</td>
                 </tr>
                 @endforeach
-<<<<<<< HEAD
-                <tr>
-                    <td>
-                        <a class="btn btn-primary"href="{{ route('transaction.edit',$transaction->id) }}">accept order</a>
-                    </td>
-                </tr>
-=======
                 <td class="text-center">Total     : {{ $detail->sum('price') }}</td>
->>>>>>> b21bb9b29c689ee1e678d785423d7f5c6a364b04
             </table>
             </div>
 

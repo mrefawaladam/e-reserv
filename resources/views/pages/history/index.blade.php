@@ -12,6 +12,7 @@
             </div>
         </div>
         <div class="section-body">
+            <h2 class="section-title">Completed Transaction</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -21,9 +22,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-primary">
-                        <div class="card-header">
-                            <h4>Transaction List</h4>
-                        </div>
                         <div class="card-body">
 
                             <div class="show-search mb-3" style="display: none">
@@ -59,9 +57,9 @@
                                                 <td>{{ $transaction->id }}</td>
                                                 <td>{{ $transaction->table->name }}</td>
                                                 <td>{{ $transaction->status }}</td>
-                                                <td  class="text-center">
+                                                <td class="text-center">
 
-                                                <a href="{{ route('transaction-prcess.show', $transaction->id) }}"
+                                                <a href="{{ route('history-user.show', $transaction->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-eye"></i>
                                                             Show</a>

@@ -53,7 +53,7 @@
                                     <tr class="text-center">
                                         <th>No</th>
                                         <th>Method</th>
-                                        <th>File Path</th>
+                                        <th>Photo</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>

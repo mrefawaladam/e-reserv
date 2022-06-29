@@ -29,7 +29,7 @@ class MenuItemController extends Controller
                 return $query->where('url', 'like', '%' . $url . '%');
             })
             ->paginate(10);
-        return view('menu.menu-item.index', compact('menuItems'));
+        return view('pages.table.index', compact('menuItems'));
     }
 
     /**
@@ -42,7 +42,7 @@ class MenuItemController extends Controller
         //
         $routeCollection = Route::getRoutes();
         $menuGroups = MenuGroup::all();
-        return view('menu.menu-item.create', compact('routeCollection', 'menuGroups'));
+        return view('pages.table.create', compact('routeCollection', 'menuGroups'));
     }
 
     /**
