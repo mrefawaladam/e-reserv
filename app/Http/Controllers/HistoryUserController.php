@@ -6,8 +6,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-
-class DashboardController extends Controller
+class HistoryUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         $transactions = Transaction::with('table')->get();
-        return view('pages.dashboard.index',compact('transactions'));
+        return view('pages.history.index',compact('transactions'));
     }
 
     /**
@@ -51,7 +50,7 @@ class DashboardController extends Controller
     {
         $transaction = Transaction::where('id', $id)->with('user','transactionDetails.menu','table','payment')->first();;
 
-        return view('pages.dashboard.show',compact('transaction'));
+        return view('pages.history.show',compact('transaction'));
     }
 
     /**

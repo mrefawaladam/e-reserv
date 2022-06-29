@@ -12,11 +12,11 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Tambah User</h2>
+            <h2 class="section-title">Edit Table</h2>
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Validasi Tambah Data</h4>
+                    <h4>Edit Data Validation</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('table.update', $table->id) }}" method="post">
@@ -31,11 +31,10 @@
                                 </div>
                             @enderror
                         </div>
-                        
+
                 </div>
                 <div class="card-footer text-right">
                     <button class="btn btn-primary">Update</button>
-                    <a class="btn btn-secondary" href="{{ route('user.index') }}">Cancel</a>
                 </div>
                 </form>
             </div>

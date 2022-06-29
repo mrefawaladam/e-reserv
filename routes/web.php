@@ -7,7 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryUserController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Main\PagesController;
 // Role Permissions
@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::resource('menu-group', MenuGroupController::class);
         Route::resource('menu-item', MenuItemController::class);
     });
-    Route::resource('dashboard',DashboardController::class);
+    Route::resource('history-user',HistoryUserController::class);
     Route::resource('menu',MenuController::class);
     // table list
     Route::resource('table', TableController::class);

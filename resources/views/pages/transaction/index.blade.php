@@ -4,7 +4,7 @@
      <!-- Main Content -->
      <section class="section">
         <div class="section-header">
-            <h1>Menu Group and Menu Item</h1>
+            <h1>Transaction</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -12,7 +12,6 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Menu Item Management</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -23,13 +22,7 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Menu Item List</h4>
-                            <div class="card-header-action">
-                                <a class="btn btn-icon icon-left btn-primary"
-                                    href="{{ route('menu-item.create') }}">Create New
-                                    Menu Item</a>
-
-                            </div>
+                            <h4>Transaction List</h4>
                         </div>
                         <div class="card-body">
 
@@ -52,11 +45,11 @@
                                 <table class="table table-bordered table-md" id="tableData">
                                     <thead>
                                     <tr class="text-center">
-                                        <th>#</th>
-                                        <th>Kode Transaction</th>
-                                        <th>Meja</th>   
+                                        <th>No</th>
+                                        <th>Transaction Code</th>
+                                        <th>Table</th>
                                         <th>Status</th>
-                                        <th class="text-right">Detail</th>
+                                        <th class="text-center">Detail</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -66,12 +59,12 @@
                                                 <td>{{ $transaction->id }}</td>
                                                 <td>{{ $transaction->table->name }}</td>
                                                 <td>{{ $transaction->status }}</td>
-                                                <td>
+                                                <td  class="text-center">
 
                                                 <a href="{{ route('transaction-prcess.show', $transaction->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-eye"></i>
-                                                            Detail</a>
+                                                            Show</a>
 
                                                 </td>
                                             </tr>

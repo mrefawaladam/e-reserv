@@ -4,7 +4,7 @@
      <!-- Main Content -->
      <section class="section">
         <div class="section-header">
-            <h1>Menu Group and Menu Item</h1>
+            <h1>Table</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Components</a></div>
@@ -12,7 +12,6 @@
             </div>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Menu Item Management</h2>
 
             <div class="row">
                 <div class="col-12">
@@ -23,12 +22,11 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Menu Item List</h4>
+                            <h4>Table List</h4>
                             <div class="card-header-action">
                                 <a class="btn btn-icon icon-left btn-primary"
                                     href="{{ route('menu-item.create') }}">Create New
                                     Menu Item</a>
-
                             </div>
                         </div>
                         <div class="card-body">

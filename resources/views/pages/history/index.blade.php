@@ -43,11 +43,11 @@
                                 <table class="table table-bordered table-md" id="tableData">
                                     <thead>
                                     <tr class="text-center">
-                                        <th>#</th>
-                                        <th>Kode Transaction</th>
-                                        <th>Meja</th>
+                                        <th>No</th>
+                                        <th>Transaction Code</th>
+                                        <th>Table</th>
                                         <th>Status</th>
-                                        <th class="text-right">Detail</th>
+                                        <th class="text-center">Detail</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -57,12 +57,12 @@
                                                 <td>{{ $transaction->id }}</td>
                                                 <td>{{ $transaction->table->name }}</td>
                                                 <td>{{ $transaction->status }}</td>
-                                                <td>
+                                                <td class="text-center">
 
-                                                <a href="{{ route('dashboard.show', $transaction->id) }}"
+                                                <a href="{{ route('history-user.show', $transaction->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-eye"></i>
-                                                            Detail</a>
+                                                            Show</a>
 
                                                 </td>
                                             </tr>

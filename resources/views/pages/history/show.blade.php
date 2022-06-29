@@ -34,6 +34,7 @@
                     <td>Price     : {{ $detail->price }}</td>
                 </tr>
                 @endforeach
+                <td class="text-center">Total     : {{ $detail->sum('price') }}</td>
             </table>
             </div>
 
