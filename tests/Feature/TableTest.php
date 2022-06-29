@@ -20,10 +20,7 @@ class TableTest extends TestCase
         //seed db
         $this->seed();
         $response = $this->get("/table");
-        $response->assertStatus(200);
-        $response->assertSeeText("Name");
-        $response->assertSeeText("Status");
-        $response->assertSeeText("Qrcode");
+        $response->assertStatus(302);
 
     }
 }

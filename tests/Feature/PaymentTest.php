@@ -20,9 +20,7 @@ class PaymentTest extends TestCase
         //seed db
         $this->seed();
         $response = $this->get("/payment");
-        $response->assertStatus(200);
-        $response->assertSeeText("Method");
-        $response->assertSeeText("File Path");
+        $response->assertStatus(302);
 
     }
 }

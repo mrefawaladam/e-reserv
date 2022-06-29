@@ -18,7 +18,7 @@ class MenuAllTest extends TestCase
      */
     public function test_user_bisa_lihat_halaman_daftar_menuAll()
     {
-        //seed db
+        // seed db
         $this->seed();
         $response = $this->get("/menu-all");
         $response->assertStatus(200);
