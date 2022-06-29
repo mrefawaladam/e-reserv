@@ -48,8 +48,8 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $transaction = Transaction::where('id', $id)->with('user','transactionDetails.menu','table','payment')->first();;
-   
+        $transaction = Transaction::where('id', $id)->with('user','transactionDetails.menu','table','payment')->first();
+        
         return view('pages.transaction.show',compact('transaction'));
 
     }

@@ -40,7 +40,7 @@ use App\Http\Controllers\Menu\TransactionController as MenuTransactionController
 */
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('firstpage');
 });
 
 Route::get('/scan-qrcode',  [PagesController::class,'scan']);
