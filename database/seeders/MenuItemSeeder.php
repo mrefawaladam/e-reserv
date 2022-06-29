@@ -90,15 +90,15 @@ class MenuItemSeeder extends Seeder
                     'permission_name' => 'payment.index',
                     'menu_group_id' => 6,
                 ],
-                
+
                 [
-                    'name' => 'Histoty List',
+                    'name' => 'History List',
                     'route' => 'history-user',
                     'permission_name' => 'history-user.index',
                     'menu_group_id' => 9,
                 ],
-                
-                
+
+
             ]
         );
     }
