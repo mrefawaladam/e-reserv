@@ -47,12 +47,7 @@ Route::get('/scan-qrcode',  [PagesController::class,'scan']);
 Route::post('/reg',  [AuthController::class,'reg']);
 Route::get('/menu-all',  [PagesController::class,'menu'])->name('menu-all');
 Route::get('/table-menu/{qrcode}', [PagesController::class,'table']);
-<<<<<<< HEAD
-Route::get('/print-nota/{id}', [PagesController::class,'printNota']); 
-Route::get('/detail-menu/{id}', [PagesController::class,'detailMenu']);
-=======
 Route::get('/print-nota/{id}', [PagesController::class,'printNota'])->name('print-nota');
->>>>>>> b21bb9b29c689ee1e678d785423d7f5c6a364b04
 //Transaction
 Route::resource('/transaction', TransactionController::class);
 
