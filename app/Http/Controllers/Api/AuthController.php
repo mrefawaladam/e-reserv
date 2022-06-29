@@ -35,12 +35,14 @@ class AuthController extends Controller
     {
 
 
-        $user = User::create([
+        $users = User::create([
             'name' => $request->name,
             'email_verified_at' => now(),
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+          $user = User::find($users->id);
+        $user->assignRole('user');
         return redirect('login');
     }
 
