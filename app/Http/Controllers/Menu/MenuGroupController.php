@@ -25,7 +25,7 @@ class MenuGroupController extends Controller
                 return $query->where('name', 'like', '%' . $name . '%');
             })
             ->paginate(10);
-        return view('menu.menu-group.index', compact('menuGroups'));
+        return view('pages.menu.menu-group.index', compact('menuGroups'));
     }
 
     /**
@@ -37,7 +37,7 @@ class MenuGroupController extends Controller
     {
         //
         $permissions = Permission::all();
-        return view('menu.menu-group.create', compact('permissions'));
+        return view('pages.menu.menu-group.create', compact('permissions'));
     }
 
     /**
@@ -50,7 +50,7 @@ class MenuGroupController extends Controller
     {
         //
         MenuGroup::create($request->validated());
-        return redirect()->route('menu-group.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('pages.menu-group.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -73,7 +73,7 @@ class MenuGroupController extends Controller
     public function edit(MenuGroup $menuGroup)
     {
         //
-        return view('menu.menu-group.edit', compact('menuGroup'));
+        return view('pages.menu.menu-group.edit', compact('menuGroup'));
     }
 
     /**
@@ -87,7 +87,7 @@ class MenuGroupController extends Controller
     {
         //
         $menuGroup->update($request->validated());
-        return redirect()->route('menu-group.index')->with('success', 'Data berhasil diubah');
+        return redirect()->route('pages.menu-group.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -100,6 +100,6 @@ class MenuGroupController extends Controller
     {
         //
         $menuGroup->delete();
-        return redirect()->route('menu-group.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('pages.menu-group.index')->with('success', 'Data berhasil dihapus');
     }
 }
