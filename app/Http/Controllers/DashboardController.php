@@ -16,8 +16,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $history = Transaction::all();
-        return view('pages.dashboard.index',compact('history'));
+        $transactions = Transaction::with('table')->get();
+        return view('pages.dashboard.index',compact('transactions'));
     }
 
     /**
@@ -49,7 +49,9 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        $transaction = Transaction::where('id', $id)->with('user','transactionDetails.menu','table','payment')->first();;
+
+        return view('pages.dashboard.show',compact('transaction'));
     }
 
     /**

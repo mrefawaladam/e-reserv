@@ -8,16 +8,30 @@
                         <div class="card-header p-3 text-center">
                             <h2>Transaction Detail</h2>
                             <h3>{{ $transaction->table->name }}</h3>
-                            <h3>{{ $transaction->table->barcode }}</h3>
-                            <h3>{{ $transaction->table->status }}</h3>
                         </div>
                         <div class="card-body">
-                            <form action="">
-                                @csrf
-                                @foreach ($transaction->transactionDetails as $item)
-                                    <h1>{{ $item->qty }}</h1>
+                            <table class="table table-striped ">
+                                <tr>
+                                    <td>Name User : {{ ($transaction->user) ? $transaction->user->name : ''  }}  </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Table Name : {{ $transaction->table->name }}</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Pyament Method : {{ $transaction->payment->method }}</td>
+
+                                </tr>
+                                @foreach ($transaction->transactionDetails as $detail)
+                                <tr>
+                                    <td>Nama Menu : {{ $detail->menu->name }}</td>
+                                    <td>Qty       : {{ $detail->qty }}</td>
+                                    <td>Price     : {{ $detail->price }}</td>
+                                </tr>
                                 @endforeach
-                            </form>
+                                <td class="text-center">Total     : {{ $detail->sum('price') }}</td>
+                            </table>
                         </div>
                     </div>
             </div>

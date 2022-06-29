@@ -69,8 +69,8 @@ class PagesController extends Controller
 
     public function printNota($id){
 
-        $transaction = Transaction::where('id', $id)->with('transactionDetails','table')->first();
-        dd($transaction);
+        $transaction = Transaction::where('id', $id)->with('transactionDetails.menu','table')->first();
+        // dd($transaction);
         return view('pages.main.nota',compact('transaction'));
 
     }
