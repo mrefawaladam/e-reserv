@@ -75,4 +75,10 @@ class PagesController extends Controller
 
     }
 
+    public function detailMenu($id){
+        $menu = Menu::where('id', $id)->with('photo')->first();
+        return view('pages.main.detail-menu',compact('menu'));
+
+    }
+
 }

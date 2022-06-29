@@ -62,7 +62,10 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+       $transaction->update([
+        'status' => 'order received'
+       ]);
+       return redirect()->route('transaction-prcess.index');
     }
 
     /**

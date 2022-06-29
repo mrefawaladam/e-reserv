@@ -72,7 +72,33 @@ class MenuItemSeeder extends Seeder
                     'permission_name' => 'table.index',
                     'menu_group_id' => 5,
                 ],
-               
+                [
+                    'name' => 'Transaction Process',
+                    'route' => 'transaction-prcess',
+                    'permission_name' => 'transaction-prcess.index',
+                    'menu_group_id' => 7,
+                ],
+                [
+                    'name' => 'Food List',
+                    'route' => 'menu',
+                    'permission_name' => 'menu.index',
+                    'menu_group_id' => 8,
+                ],
+                [
+                    'name' => 'Payment List',
+                    'route' => 'payment',
+                    'permission_name' => 'payment.index',
+                    'menu_group_id' => 6,
+                ],
+                
+                [
+                    'name' => 'Histoty List',
+                    'route' => 'history-user',
+                    'permission_name' => 'history-user.index',
+                    'menu_group_id' => 9,
+                ],
+                
+                
             ]
         );
     }

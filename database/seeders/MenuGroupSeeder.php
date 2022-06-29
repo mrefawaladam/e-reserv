@@ -48,11 +48,23 @@ class MenuGroupSeeder extends Seeder
                     'icon' => 'fas fa-bars',
                     'permisison_name' => 'payment.index',
                 ],
+            
+
                 [
                     'name' => 'Transaction Management',
                     'icon' => 'fas fa-bars',
-                    'permisison_name' => 'transaction.index',
+                    'permisison_name' => 'transaction-prcess.index',
                 ],
+                [
+                    'name' => 'Food Management',
+                    'icon' => 'fas fa-bars',
+                    'permisison_name' => 'menu.index',
+                ],
+                [
+                    'name' => 'History Transaction',
+                    'icon' => 'fas fa-bars',
+                    'permisison_name' => 'history-user.index',
+                ], 
             ]
         );
     }
