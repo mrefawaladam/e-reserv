@@ -17,7 +17,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::all();
-        return view('pages.menu.index',compact('menus'));
+        return view('pages.menu.index', compact('menus'));
     }
 
     /**
@@ -50,19 +50,17 @@ class MenuController extends Controller
         ]);
 
         // dd($request->hasFile('filename'));
-        if($request->hasfile('filename'))
-         {
+        if ($request->hasfile('filename')) {
 
-            foreach($request->file('filename') as $file)
-            {
-                $name=$file->getClientOriginalName();
-                $file->move(public_path().'/assets/img/path/', $name);
-               Photo::create([
+            foreach ($request->file('filename') as $file) {
+                $name = $file->getClientOriginalName();
+                $file->move(public_path() . '/assets/img/path/', $name);
+                Photo::create([
                     'file_path' => $name,
                     'menu_id' => $menu->id,
                 ]);
             }
-         }
+        }
 
 
         return redirect()->route('menu.index')->with('success', 'Data berhasil ditambahkan');
@@ -87,7 +85,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        return view('pages.menu.edit',compact('menu'));
+        return view('pages.menu.edit', compact('menu'));
     }
 
     /**

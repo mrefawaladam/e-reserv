@@ -16,7 +16,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = Transaction::with('table')->get();
-        return view('pages.transaction.index',compact('transactions'));
+        return view('pages.transaction.index', compact('transactions'));
     }
 
     /**
@@ -48,10 +48,9 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $transaction = Transaction::where('id', $id)->with('user','transactionDetails.menu','table','payment')->first();
-        
-        return view('pages.transaction.show',compact('transaction'));
+        $transaction = Transaction::where('id', $id)->with('user', 'transactionDetails.menu', 'table', 'payment')->first();
 
+        return view('pages.transaction.show', compact('transaction'));
     }
 
     /**
@@ -62,10 +61,10 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-       $transaction->update([
-        'status' => 'order received'
-       ]);
-       return redirect()->route('transaction-prcess.index');
+        $transaction->update([
+            'status' => 'order received'
+        ]);
+        return redirect()->route('transaction-prcess.index');
     }
 
     /**
