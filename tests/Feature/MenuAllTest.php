@@ -23,10 +23,7 @@ class MenuAllTest extends TestCase
         $response = $this->get("/menu-all");
         $response->assertStatus(200);
         $response->assertSeeText("MENU LIST");
-
-        $response = $this->get('/');
-
-
+        $response->assertSeeText("Batagor");
     }
 }
 
