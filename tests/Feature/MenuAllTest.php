@@ -16,7 +16,7 @@ class MenuAllTest extends TestCase
      *
      * @return void
      */
-    public function test_user_bisa_lihat_halaman_daftar_menuAll()
+    public function test_user_can_open_menu()
     {
         // seed db
         $this->seed();

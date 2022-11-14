@@ -15,7 +15,7 @@ class TableTest extends TestCase
      *
      * @return void
      */
-    public function test_user_bisa_lihat_halaman_daftar_table()
+    public function test_user_can_open_table()
     {
         //seed db
         $this->seed();

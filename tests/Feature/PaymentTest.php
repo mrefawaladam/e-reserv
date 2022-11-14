@@ -15,7 +15,7 @@ class PaymentTest extends TestCase
      *
      * @return void
      */
-    public function test_user_bisa_lihat_halaman_daftar_payment()
+    public function test_user_can_open_payment()
     {
         //seed db
         $this->seed();
