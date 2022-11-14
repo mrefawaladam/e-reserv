@@ -41,7 +41,7 @@ class CreateUserTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $response->$this->assertSessionHasErrors(['name']);
+        $response->$this->assertInvalid(['name']);
     }
 
     public function test_email_is_required()
@@ -53,7 +53,7 @@ class CreateUserTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $response->$this->assertSessionHasErrors(['email']);
+        $response->$this->assertInvalid(['email']);
     }
 
     public function test_email_not_valid()
@@ -65,7 +65,7 @@ class CreateUserTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $response->$this->assertSessionHasErrors(['email']);
+        $response->$this->assertInvalid(['email']);
     }
 
     public function test_password_is_required()
@@ -77,7 +77,7 @@ class CreateUserTest extends TestCase
             'password_confirmation' => ''
         ]);
 
-        $response->$this->assertSessionHasErrors(['password']);
+        $response->$this->assertInvalid(['password']);
     }
 
     public function test_password_confirmation_is_required()
@@ -89,7 +89,7 @@ class CreateUserTest extends TestCase
             'password_confirmation' => ''
         ]);
 
-        $response->$this->assertSessionHasErrors(['password_confirmation']);
+        $response->$this->assertInvalid(['password_confirmation']);
     }
 
     public function test_password_confirmation_not_same()
@@ -101,6 +101,6 @@ class CreateUserTest extends TestCase
             'password_confirmation' => 'password2'
         ]);
 
-        $response->$this->assertSessionHasErrors(['password_confirmation']);
+        $response->$this->assertInvalid(['password_confirmation']);
     }
 }
