@@ -23,7 +23,22 @@ class MenuAllTest extends TestCase
         $response = $this->get("/menu-all");
         $response->assertStatus(200);
         $response->assertSeeText("MENU LIST");
+
         $response->assertSeeText("Batagor");
+        $response->assertSeeText("Rp30000");
+        $response->assertSeeText("available");
+
+        $response->assertSeeText("Espresso");
+        $response->assertSeeText("Rp20000");
+        $response->assertSeeText("available");
+
+        $response->assertSeeText("Latte");
+        $response->assertSeeText("Rp15000");
+        $response->assertSeeText("available");
+
+        $response->assertSeeText("Capucino");
+        $response->assertSeeText("Rp25000");
+        $response->assertSeeText("available");
     }
 }
 
