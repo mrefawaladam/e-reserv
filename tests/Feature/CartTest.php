@@ -43,4 +43,20 @@ class CartTest extends TestCase
         $response = $this->delete("/remove");
         $response->assertStatus(405);
     }
+
+    public function test_add_cart()
+    {
+        $cart = \Cart::add([
+            'id' => '1',
+            'name' => 'batagor',
+            'price' => '30000',
+            'quantity' => '1',
+            'attributes' => array(
+                'image' => 'img1.jpg'
+            )
+        ]);
+
+        $response = $this->post("/cart");
+        $response->assertStatus(500);
+    }
 }
