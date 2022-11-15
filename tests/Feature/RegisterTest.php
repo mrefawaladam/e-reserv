@@ -6,14 +6,14 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class CreateUserTest extends TestCase
+class RegisterTest extends TestCase
 {
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function test_example()
+    public function test_user_can_open_register()
     {
         $response = $this->get('/register');
 
