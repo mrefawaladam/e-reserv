@@ -12,7 +12,7 @@
  <div class="row">
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible show fade">
-            <div class="alert-body">
+            <div class="alert-body" id="alert">
                 <span>{{ $message }}</span>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <input type="hidden" value="assets\img\path\{{ $menu->main_photo->file_path  }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
                     <button class="btn btn-primary">Choose</button>
-                    <a href="{{ url('detail-menu/'.$menu->id) }}">Detail</a>
+                    <a href="{{ url('detail-menu/'.$menu->id) }}" id="detail">Detail</a>
                 </form>
             </div>
         </div>
