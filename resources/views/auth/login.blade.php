@@ -50,7 +50,7 @@
                                             class="form-control @error('email') is-invalid @enderror"
                                             placeholder="Masukkan Alamat Email">
                                         @error('email')
-                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            <div class="invalid-feedback" id="invalid_email">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -67,7 +67,7 @@
                                             class="form-control @error('password') is-invalid @enderror"
                                             placeholder="Masukkan Password">
                                         @error('email')
-                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            <div class="invalid-feedback" id="invalid_password">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">

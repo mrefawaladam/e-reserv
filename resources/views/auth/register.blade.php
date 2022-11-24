@@ -48,7 +48,7 @@
                                                     class="form-control @error('name') is-invalid @enderror"
                                                     placeholder="Masukkan Nama Lengkap" autofocus>
                                                 @error('name')
-                                                    <div class="invalid-feedback">
+                                                    <div class="invalid-feedback" id="invalid_name">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
@@ -63,7 +63,7 @@
                                                     class="form-control @error('email') is-invalid @enderror"
                                                     placeholder="Masukkan Alamat Email">
                                                 @error('email')
-                                                    <div class="invalid-feedback">
+                                                    <div class="invalid-feedback" id="invalid_email_register">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
@@ -78,7 +78,7 @@
                                                     class="form-control @error('password') is-invalid @enderror"
                                                     placeholder="Masukkan Password" data-indicator="pwindicator">
                                                 @error('password')
-                                                    <div class="invalid-feedback">
+                                                    <div class="invalid-feedback" id="invalid_password_register">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
@@ -93,7 +93,7 @@
                                                     type="password" class="form-control"
                                                     placeholder="Masukkan Konfirmasi Password">
                                                 @error('password')
-                                                    <div class="invalid-feedback">
+                                                    <div class="invalid-feedback" id="invalid_password_confirmation">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
