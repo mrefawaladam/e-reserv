@@ -6,7 +6,7 @@
                 <div class="flex justify-center my-6">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-dismissible show fade">
-                            <div class="alert-body">
+                            <div class="alert-body" id="alert_cart">
                                 <span>{{ $message }}</span>
                             </div>
                         </div>
