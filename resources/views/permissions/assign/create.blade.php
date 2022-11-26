@@ -38,8 +38,8 @@
                         @csrf
                         <div class="form-group">
                             <label>Roles</label>
-                            <select name="role" class="form-control select2">
-                                <option value="">Choose Role</option>
+                            <select id="role_assign" name="role" class="form-control select2">
+                                <option  value="">Choose Role</option>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group">
                             <label>Permission</label>
-                            <select name="permissions[]" class="form-control select2" multiple>
+                            <select id="permissions" name="permissions[]" class="form-control select2" multiple>
                                 @foreach ($permissions as $permission)
                                     <option value="{{ $permission->id }}">{{ $permission->name }}</option>
                                 @endforeach

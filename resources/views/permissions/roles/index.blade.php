@@ -83,10 +83,17 @@
                                                 <td>{{ $role->guard_name }}</td>
                                                 <td class="text-right">
                                                     <div class="d-flex justify-content-end">
-                                                        <a href="{{ route('role.edit', $role->id) }}"
+                                                        <!-- <a href="{{ route('role.edit', $role->id) }}"
                                                             class="btn btn-sm btn-info btn-icon "><i
                                                                 class="fas fa-edit"></i>
-                                                            Edit</a>
+                                                            Edit</a> -->
+                                                        <form action="{{ route('role.edit', $role->id) }}" method="GET" class="ml-2">
+                                                            <input type="hidden" name="_method" value="EDIT">
+                                                            <input type="hidden" name="_token"
+                                                                value="{{ csrf_token() }}">
+                                                            <button class="btn btn-sm btn-info btn-icon"><i
+                                                                class="fas fa-edit"></i> Edit </button>
+                                                        </form>
                                                         <form action="{{ route('role.destroy', $role->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE">

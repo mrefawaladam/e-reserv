@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label>Roles</label>
-                            <select name="roles[]" class="form-control select2" multiple>
+                            <select id="roles" name="roles[]" class="form-control select2" multiple>
                                 @foreach ($roles as $role)
                                     <option {{ $user->roles()->find($role->id) ? 'selected' : '' }}
                                         value="{{ $role->id }}">{{ $role->name }}</option>

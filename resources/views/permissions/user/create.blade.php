@@ -23,7 +23,7 @@
                         @csrf
                         <div class="form-group">
                             <label>User</label>
-                            <select name="user" class="form-control select2">
+                            <select id="user_role" name="user" class="form-control select2">
                                 <option value="">Choose User</option>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label>Roles</label>
-                            <select name="roles[]" class="form-control select2" multiple>
+                            <select id="roles" name="roles[]" class="form-control select2" multiple>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach

@@ -4,12 +4,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Dashboard').click()
-        cy.get('a').contains('Dashboard').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Dashboard').click({force: true})
+        cy.get('a').contains('Dashboard').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
     });
 
@@ -18,10 +18,10 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
-        cy.get('li[id=dropdown]').click()
-        cy.get('a[id=logout]').click()
+        cy.get('li[id=dropdown]').click({force: true})
+        cy.get('a[id=logout]').click({force: true})
         cy.url().should('contain','http://localhost:8000')
 
     });
@@ -31,12 +31,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Users Management').click()
-        cy.get('a').contains('User List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Users Management').click({force: true})
+        cy.get('a').contains('User List').click({force: true})
         cy.url().should('contain','http://localhost:8000/user-management/user')
     });
 
@@ -45,27 +45,27 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Role Management').click()
-        cy.get('a').contains('Role List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Role Management').click({force: true})
+        cy.get('a').contains('Role List').click({force: true})
         cy.url().should('contain','http://localhost:8000/role-and-permission/role')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Role Management').click()
-        cy.get('a').contains('Permission List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Role Management').click({force: true})
+        cy.get('a').contains('Permission List').click({force: true})
         cy.url().should('contain','http://localhost:8000/role-and-permission/permission')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Role Management').click()
-        cy.get('a').contains('Permission To Role').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Role Management').click({force: true})
+        cy.get('a').contains('Permission To Role').click({force: true})
         cy.url().should('contain','http://localhost:8000/role-and-permission/assign')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Role Management').click()
-        cy.get('a').contains('User To Role').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Role Management').click({force: true})
+        cy.get('a').contains('User To Role').click({force: true})
         cy.url().should('contain','http://localhost:8000/role-and-permission/assign-user')
     });
 
@@ -74,17 +74,17 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Menu Management').click()
-        cy.get('a').contains('Menu Group').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Menu Management').click({force: true})
+        cy.get('a').contains('Menu Group').click({force: true})
         cy.url().should('contain','http://localhost:8000/menu-management/menu-group')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Menu Management').click()
-        cy.get('a').contains('Menu Item').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Menu Management').click({force: true})
+        cy.get('a').contains('Menu Item').click({force: true})
         cy.url().should('contain','http://localhost:8000/menu-management/menu-item')
     });
 
@@ -93,12 +93,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Table Management').click()
-        cy.get('a').contains('Table List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Table Management').click({force: true})
+        cy.get('a').contains('Table List').click({force: true})
         cy.url().should('contain','http://localhost:8000/table')
     });
 
@@ -107,12 +107,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Payment Management').click()
-        cy.get('a').contains('Payment List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Payment Management').click({force: true})
+        cy.get('a').contains('Payment List').click({force: true})
         cy.url().should('contain','http://localhost:8000/payment')
     });
 
@@ -121,12 +121,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Transaction Management').click()
-        cy.get('a').contains('Transaction Process').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Transaction Management').click({force: true})
+        cy.get('a').contains('Transaction Process').click({force: true})
         cy.url().should('contain','http://localhost:8000/transaction-prcess')
     });
 
@@ -135,12 +135,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Food Management').click()
-        cy.get('a').contains('Food List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Food Management').click({force: true})
+        cy.get('a').contains('Food List').click({force: true})
         cy.url().should('contain','http://localhost:8000/menu')
     });
 
@@ -149,12 +149,12 @@ describe("dashboard superadmin", () => {
 
         cy.get('input[name=email]').type('superadmin@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('History Transaction').click()
-        cy.get('a').contains('History List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('History Transaction').click({force: true})
+        cy.get('a').contains('History List').click({force: true})
         cy.url().should('contain','http://localhost:8000/history-user')
     });
 });
@@ -165,12 +165,12 @@ describe("dashboard user", () => {
 
         cy.get('input[name=email]').type('user@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Dashboard').click()
-        cy.get('a').contains('Dashboard').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Dashboard').click({force: true})
+        cy.get('a').contains('Dashboard').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
     });
 
@@ -179,12 +179,12 @@ describe("dashboard user", () => {
 
         cy.get('input[name=email]').type('user@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Users Management').click()
-        cy.get('a').contains('User List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Users Management').click({force: true})
+        cy.get('a').contains('User List').click({force: true})
         cy.url().should('contain','http://localhost:8000/user-management/user')
     });
 
@@ -193,12 +193,12 @@ describe("dashboard user", () => {
 
         cy.get('input[name=email]').type('user@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('History Transaction').click()
-        cy.get('a').contains('History List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('History Transaction').click({force: true})
+        cy.get('a').contains('History List').click({force: true})
         cy.url().should('contain','http://localhost:8000/history-user')
     });
 
@@ -207,10 +207,10 @@ describe("dashboard user", () => {
 
         cy.get('input[name=email]').type('user@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
-        cy.get('li[id=dropdown]').click()
-        cy.get('a[id=logout]').click()
+        cy.get('li[id=dropdown]').click({force: true})
+        cy.get('a[id=logout]').click({force: true})
         cy.url().should('contain','http://localhost:8000')
 
     });
@@ -222,12 +222,12 @@ describe("dashboard Staff", () => {
 
         cy.get('input[name=email]').type('Staf@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Dashboard').click()
-        cy.get('a').contains('Dashboard').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Dashboard').click({force: true})
+        cy.get('a').contains('Dashboard').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
     });
 
@@ -236,12 +236,12 @@ describe("dashboard Staff", () => {
 
         cy.get('input[name=email]').type('Staf@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Users Management').click()
-        cy.get('a').contains('User List').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Users Management').click({force: true})
+        cy.get('a').contains('User List').click({force: true})
         cy.url().should('contain','http://localhost:8000/user-management/user')
     });
 
@@ -250,12 +250,12 @@ describe("dashboard Staff", () => {
 
         cy.get('input[name=email]').type('Staf@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
 
-        cy.get('ul[id=navbar]').click()
-        cy.get('span').contains('Transaction Management').click()
-        cy.get('a').contains('Transaction Process').click()
+        cy.get('ul[id=navbar]').click({force: true})
+        cy.get('span').contains('Transaction Management').click({force: true})
+        cy.get('a').contains('Transaction Process').click({force: true})
         cy.url().should('contain','http://localhost:8000/transaction-prcess')
     });
 
@@ -264,10 +264,10 @@ describe("dashboard Staff", () => {
 
         cy.get('input[name=email]').type('Staf@gmail.com')
         cy.get('input[name=password]').type('password')
-        cy.get('button').contains('Login').click()
+        cy.get('button').contains('Login').click({force: true})
         cy.url().should('contain','http://localhost:8000/dashboard')
-        cy.get('li[id=dropdown]').click()
-        cy.get('a[id=logout]').click()
+        cy.get('li[id=dropdown]').click({force: true})
+        cy.get('a[id=logout]').click({force: true})
         cy.url().should('contain','http://localhost:8000')
 
     });
