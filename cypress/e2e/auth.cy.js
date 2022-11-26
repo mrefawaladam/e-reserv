@@ -71,7 +71,7 @@ describe("register", () => {
     it("Guest can register", () => {
         cy.visit("http://localhost:8000/register");
         cy.get('input[name=name]').type('Berryl Radian Hamesha')
-        cy.get('input[name=email]').type('berryl@gmail.com')
+        cy.get('input[name=email]').type('radian@gmail.com')
         cy.get('input[name=password]').type('password')
         cy.get('input[name=password_confirmation]').type('password')
         cy.get('button').contains('Register').click()
